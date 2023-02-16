@@ -1,0 +1,86 @@
+.treeGA { grid-area: GroupA; }
+.treeGB { grid-area: GroupB; }
+.treeGC { grid-area: GroupC; }
+.treeGD { grid-area: GroupD; }
+.treeVF1 { grid-area: Viertel1; }
+.treeVF2 { grid-area: Viertel2;}
+.treeHF { grid-area: Halb; }
+.treeFinal { grid-area: Final;}
+
+
+.tree {
+    display: grid;
+    grid-template-areas:
+    'GroupA     .           Halb        .           GroupC'
+    'GroupA     Viertel1    Halb        Viertel2    GroupC'
+    'GroupB     Viertel1    Final       Viertel2    GroupD'
+    'GroupB     .           Final       .           GroupD';
+    grid-template-columns: auto auto auto auto auto;
+    grid-template-rows: 25% 25% 25% 25%;
+    height: 400px;
+    padding: 30px;
+    background-color: beige;
+}
+
+.treeGA {
+    background-color: aqua;
+
+}
+
+.treeGB {
+    background-color: green;
+
+}
+
+.treeGC {
+    background-color: greenyellow;
+
+}
+
+.treeGD {
+    background-color: rebeccapurple;
+
+}
+
+.treeVF1 {
+    background-color: red;
+
+}
+
+.treeVF2 {
+    background-color: yellow;
+
+}
+
+.treeHF {
+    background-color: brown;
+}
+
+.treeFinal {
+    background-color: blue;
+
+}
+
+
+.groupTable {
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    height: 120px;
+    width: fit-content;
+    padding: 30px;
+    background-color: #dcf5e7;
+    margin: auto;
+}
+
+.groupTable div {
+    padding: 0px 50px 0px 0px;
+}
+
+table, td {
+    border:1px solid black;
+    padding: 3px;
+}
+
+th {
+    font-size: 22px;
+}
