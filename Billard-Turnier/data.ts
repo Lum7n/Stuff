@@ -1,21 +1,5 @@
 namespace BillardTurnier {
 
-    export let A1: [name: string, points: number, fouls: number] = ["Max", 0, 0];
-    export let A2: [name: string, points: number, fouls: number] = ["Simon", 0, 0];
-    export let A3: [name: string, points: number, fouls: number] = ["Justin", 0, 0];
-
-    export let B1: [name: string, points: number, fouls: number] = ["Vincent", 0, 0];
-    export let B2: [name: string, points: number, fouls: number] = ["Ben", 0, 0];
-    export let B3: [name: string, points: number, fouls: number] = ["Luis", 0, 0];
-
-    export let C1: [name: string, points: number, fouls: number] = ["Sigi", 0, 0];
-    export let C2: [name: string, points: number, fouls: number] = ["Jan", 0, 0];
-    export let C3: [name: string, points: number, fouls: number] = ["Ulla", 0, 0];
-
-    export let D1: [name: string, points: number, fouls: number] = ["Linda", 0, 0];
-    export let D2: [name: string, points: number, fouls: number] = ["Alex", 0, 0];
-    export let D3: [name: string, points: number, fouls: number] = ["Valentin", 0, 0];
-
     // Matches
 
     export interface Match {
@@ -51,6 +35,21 @@ namespace BillardTurnier {
             { name1: "Linda", points1: 0, fouls1: 0, name2: "Alex", points2: 0, fouls2: 0 },
             { name1: "Alex", points1: 0, fouls1: 0, name2: "Valentin", points2: 0, fouls2: 0 },
             { name1: "Valentin", points1: 0, fouls1: 0, name2: "Linda", points2: 0, fouls2: 0 }
+        ],
+        VF1: [
+            { name1: "A1", points1: 0, fouls1: 0, name2: "B2", points2: 0, fouls2: 0 },
+            { name1: "B1", points1: 0, fouls1: 0, name2: "A2", points2: 0, fouls2: 0 }
+        ],
+        VF2: [
+            { name1: "C1", points1: 0, fouls1: 0, name2: "D2", points2: 0, fouls2: 0 },
+            { name1: "D1", points1: 0, fouls1: 0, name2: "C2", points2: 0, fouls2: 0 }
+        ],
+        HF: [
+            { name1: "VF1", points1: 0, fouls1: 0, name2: "VF3", points2: 0, fouls2: 0 },
+            { name1: "VF2", points1: 0, fouls1: 0, name2: "VF4", points2: 0, fouls2: 0 }
+        ],
+        Final: [
+            { name1: "HF1", points1: 0, fouls1: 0, name2: "HF2", points2: 0, fouls2: 0 }
         ]
     };
 
@@ -60,6 +59,7 @@ namespace BillardTurnier {
     export interface Participants {
         name: string;
         points: number;
+        fouls: number;
     }
 
     export interface Data {
@@ -68,24 +68,24 @@ namespace BillardTurnier {
 
     export let data: Data = {
         A: [
-            { name: "Max", points: 0 },
-            { name: "Simon", points: 0 },
-            { name: "Justin", points: 0 }
+            { name: "Max", points: 0, fouls: 0 },
+            { name: "Simon", points: 0, fouls: 0 },
+            { name: "Justin", points: 0, fouls: 0 }
         ],
         B: [
-            { name: "Vincent", points: 0 },
-            { name: "Ben", points: 0 },
-            { name: "Luis", points: 0 }
+            { name: "Vincent", points: 0, fouls: 0 },
+            { name: "Ben", points: 0, fouls: 0 },
+            { name: "Luis", points: 0, fouls: 0 }
         ],
         C: [
-            { name: "Sigi", points: 0 },
-            { name: "Jan", points: 0 },
-            { name: "Ulla", points: 0 }
+            { name: "Sigi", points: 0, fouls: 0 },
+            { name: "Jan", points: 0, fouls: 0 },
+            { name: "Ulla", points: 0, fouls: 0 }
         ],
         D: [
-            { name: "Linda", points: 0 },
-            { name: "Alex", points: 0 },
-            { name: "Valentin", points: 0 }
+            { name: "Linda", points: 0, fouls: 0 },
+            { name: "Alex", points: 0, fouls: 0 },
+            { name: "Valentin", points: 0, fouls: 0 }
         ]
     };
 
@@ -96,97 +96,109 @@ namespace BillardTurnier {
         for (let part in matches) {
             let match: Match[] = matches[part];
 
-            let points1: number = match[0].points1 + match[2].points2;
-            let fouls1: number = match[0].fouls1 + match[2].fouls2;
+            switch (part) {
+                case "A":
+                case "B":
+                case "C":
+                case "D":
 
-            let points2: number = match[0].points2 + match[1].points1;
-            let fouls2: number = match[0].fouls2 + match[1].fouls1;
+                    console.log(part);
 
-            let points3: number = match[1].points2 + match[2].points1;
-            let fouls3: number = match[1].fouls2 + match[2].fouls1;
+                    let points1: number = match[0].points1 + match[2].points2;
+                    let fouls1: number = match[0].fouls1 + match[2].fouls2;
 
-            let groups: string[] = ["A", "B", "C", "D"];
+                    let points2: number = match[0].points2 + match[1].points1;
+                    let fouls2: number = match[0].fouls2 + match[1].fouls1;
 
-            if (groups[index] == "A") {
+                    let points3: number = match[1].points2 + match[2].points1;
+                    let fouls3: number = match[1].fouls2 + match[2].fouls1;
 
-                A1[1] = points1;
-                A1[2] = fouls1;
-    
-                A2[1] = points2;
-                A2[2] = fouls2;
-    
-                A3[1] = points3;
-                A3[2] = fouls3;
+                    let groups: string[] = ["A", "B", "C", "D"];
 
-                console.log(A1);
-                console.log(A2);
-                console.log(A3);
+                    if (groups[index] == "A") {
 
-            } else if (groups[index] == "B") {
+                        data.A[0].points = points1;
+                        data.A[0].fouls = fouls1;
 
-                B1[1] = points1;
-                B1[2] = fouls1;
-    
-                B2[1] = points2;
-                B2[2] = fouls2;
-    
-                B3[1] = points3;
-                B3[2] = fouls3;
+                        data.A[1].points = points2;
+                        data.A[1].fouls = fouls2;
 
-                console.log(B1);
-                console.log(B2);
-                console.log(B3);
+                        data.A[2].points = points3;
+                        data.A[2].fouls = fouls3;
 
-            } else if (groups[index] == "C") {
+                        // console.log(data.A[0]);
+                        // console.log(data.A[1]);
+                        // console.log(data.A[2]);
 
-                C1[1] = points1;
-                C1[2] = fouls1;
-    
-                C2[1] = points2;
-                C2[2] = fouls2;
-    
-                C3[1] = points3;
-                C3[2] = fouls3;
+                    } else if (groups[index] == "B") {
 
-                console.log(C1);
-                console.log(C2);
-                console.log(C3);
+                        data.B[0].points = points1;
+                        data.B[0].fouls = fouls1;
 
-            } else if (groups[index] == "D") {
+                        data.B[1].points = points2;
+                        data.B[1].fouls = fouls2;
 
-                D1[1] = points1;
-                D1[2] = fouls1;
-    
-                D2[1] = points2;
-                D2[2] = fouls2;
-    
-                D3[1] = points3;
-                D3[2] = fouls3;
+                        data.B[2].points = points3;
+                        data.B[2].fouls = fouls3;
 
-                console.log(D1);
-                console.log(D2);
-                console.log(D3);
+                        // console.log(data.B[0]);
+                        // console.log(data.B[1]);
+                        // console.log(data.B[2]);
 
-            } else {
+                    } else if (groups[index] == "C") {
 
-                break;
+                        data.C[0].points = points1;
+                        data.C[0].fouls = fouls1;
 
+                        data.C[1].points = points2;
+                        data.C[1].fouls = fouls2;
+
+                        data.C[2].points = points3;
+                        data.C[2].fouls = fouls3;
+
+                        // console.log(data.C[0]);
+                        // console.log(data.C[1]);
+                        // console.log(data.C[2]);
+
+                    } else if (groups[index] == "D") {
+
+                        data.D[0].points = points1;
+                        data.D[0].fouls = fouls1;
+
+                        data.D[1].points = points2;
+                        data.D[1].fouls = fouls2;
+
+                        data.D[2].points = points3;
+                        data.D[2].fouls = fouls3;
+
+                        // console.log(data.D[0]);
+                        // console.log(data.D[1]);
+                        // console.log(data.D[2]);
+
+                    } else {
+
+                        break;
+
+                    }
+
+                    index++;
+
+                    break;
+
+                case "VF1":
+                case "VF2":
+                case "HF":
+                case "Final":
+
+                    console.log("emptySummarize: " + part);
+                    break;
+
+                default:
+                    break;
             }
-
-
-
-            index++;
 
         }
 
-        // let data: Data = {};
-        // data.A = [
-        //     { name: match[0].name1, points: points1 },
-        //     { name: match[1].name1, points: points2 },
-        //     { name: match[2].name1, points: points3 }
-        // ];
-
-        // console.log(data);
     }
 
 }

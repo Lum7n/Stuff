@@ -25,44 +25,65 @@ namespace BillardTurnier {
         for (let part in matches) {
             let match: Match[] = matches[part];
 
-            console.log(part);
-
-            let extraIndex: number = 1;
-
             //create Table-Elements
             let table: HTMLTableElement = document.createElement("table");
             let trHeader: HTMLTableRowElement = document.createElement("tr");
             let th: HTMLElement = document.createElement("th");
 
-            //get Group-Div
-            let tableGroup: HTMLElement = <HTMLElement>document.querySelector(".treeG" + part);
+            let tableGroup: HTMLElement = <HTMLElement>document.querySelector(".tree" + part);
 
-            //add Content to Table-Elements & them to Group-Div
-            th.innerText = "Gruppe " + part;
-            trHeader.appendChild(th);
-            table.appendChild(trHeader);
+            switch (part) {
+                case "A":
+                case "B":
+                case "C":
+                case "D":
 
-            for (let index: number = 0; index < match.length; index++) {
+                    console.log(part);
 
-                let tr: HTMLTableRowElement = document.createElement("tr");
+                    //get Group-Div
+                    tableGroup = <HTMLElement>document.querySelector(".treeG" + part);
 
-                let tdMatch: HTMLTableCellElement = document.createElement("td");
-                let tdTime: HTMLTableCellElement = document.createElement("td");
-                let tdScore: HTMLTableCellElement = document.createElement("td");
+                    //add Content to Table-Elements & them to Group-Div
+                    th.innerText = "Gruppe " + part;
+                    trHeader.appendChild(th);
+                    table.appendChild(trHeader);
 
-                tdMatch.innerHTML = "<p>" + match[index].name1 + "</p> : <p>" + match[index].name2 + "</p>";
-                tdMatch.className = "match";
-                tr.appendChild(tdMatch);
+                    for (let index: number = 0; index < match.length; index++) {
 
-                tdTime.innerText = "8:00";
-                tr.appendChild(tdTime);
+                        let tr: HTMLTableRowElement = document.createElement("tr");
 
-                tdScore.innerText = "0:0";
-                tr.appendChild(tdScore);
+                        let tdMatch: HTMLTableCellElement = document.createElement("td");
+                        let tdTime: HTMLTableCellElement = document.createElement("td");
+                        let tdScore: HTMLTableCellElement = document.createElement("td");
 
-                table.appendChild(tr);
+                        tdMatch.innerHTML = "<p>" + match[index].name1 + "</p> : <p>" + match[index].name2 + "</p>";
+                        tdMatch.className = "match";
+                        tr.appendChild(tdMatch);
 
+                        tdTime.innerText = "8:00";
+                        tr.appendChild(tdTime);
+
+                        tdScore.innerText = "0:0";
+                        tr.appendChild(tdScore);
+
+                        table.appendChild(tr);
+                    }
+
+                    break;
+
+                case "VF1":
+                case "VF2":
+                case "HF":
+                case "Final":
+
+                    console.log("leerMatches: " + part);
+                    break;
+
+                default:
+                    break;
             }
+
+
 
             tableGroup.appendChild(table);
         }
@@ -75,7 +96,6 @@ namespace BillardTurnier {
             let participants: Participants[] = data[group];
             console.log(group);
             console.log(participants[0]);
-            // console.log(participants[0].name);
             console.log(participants[1]);
             console.log(participants[2]);
 
@@ -97,11 +117,14 @@ namespace BillardTurnier {
                 let tr: HTMLTableRowElement = document.createElement("tr");
                 let tdName: HTMLTableCellElement = document.createElement("td");
                 let tdPoints: HTMLTableCellElement = document.createElement("td");
+                let tdFouls: HTMLTableCellElement = document.createElement("td");
 
                 tdName.innerText = participants[index].name;
                 tr.appendChild(tdName);
                 tdPoints.innerText = participants[index].points + " P.";
                 tr.appendChild(tdPoints);
+                tdFouls.innerText = participants[index].fouls + " Fouls";
+                tr.appendChild(tdFouls);
                 table.appendChild(tr);
 
             }
