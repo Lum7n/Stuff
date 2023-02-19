@@ -17,30 +17,43 @@
     'GroupB     .           Final       .           GroupD';
     grid-template-columns: auto auto auto auto auto;
     grid-template-rows: 25% 25% 25% 25%;
-    height: 400px;
+    height: 350px;
+    width: fit-content;
     padding: 30px;
     background-color: beige;
 }
 
 .treeGA {
     background-color: aqua;
-
+    padding: 20px;
 }
 
 .treeGB {
     background-color: green;
-
+    padding: 20px;
 }
 
 .treeGC {
     background-color: greenyellow;
-
+    padding: 20px;
 }
 
 .treeGD {
     background-color: rebeccapurple;
-
+    padding: 20px;
 }
+
+p {
+    margin: 2px;
+    width: 60px;
+    text-align: center;
+}
+
+.match {
+    display: flex;
+    justify-content: center;
+}
+
 
 .treeVF1 {
     background-color: red;

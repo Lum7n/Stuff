@@ -1,126 +1,117 @@
 namespace BillardTurnier {
 
-    let groupA: string[] = ["max", "simon", "justin"];
-    let max: [name: string, points: number] = ["Max", 0];
-    let simon: [name: string, points: number] = ["Simon", 0];
-    let justin: [name: string, points: number] = ["Justin", 0];
-
-
     window.addEventListener("load", handleLoad);
 
     function handleLoad(): void {
 
+        buildTree();
         buildGroupTables();
+
+    }
+
+    function buildTree(): void {
+
+        groupMatches();
+        // quarterMatches();
+        // halfMatches();
+        // finalMatches();
+
+    }
+
+    function groupMatches(): void {
+
+        for (let group in data) {
+            let participants: Participants[] = data[group];
+
+            //create Table-Elements
+            let table: HTMLTableElement = document.createElement("table");
+            let trHeader: HTMLTableRowElement = document.createElement("tr");
+            let th: HTMLElement = document.createElement("th");
+
+            //get Group-Div
+            let tableGroup: HTMLElement = <HTMLElement>document.querySelector(".treeG" + group);
+
+            //add Content to Table-Elements & them to Group-Div
+            th.innerText = "Gruppe " + group;
+            trHeader.appendChild(th);
+            table.appendChild(trHeader);
+
+
+            let extraIndex: number = 1;
+
+            for (let index: number = 0; index < participants.length; index++) {
+
+                let tr: HTMLTableRowElement = document.createElement("tr");
+
+                let tdMatch: HTMLTableCellElement = document.createElement("td");
+                let tdTime: HTMLTableCellElement = document.createElement("td");
+                let tdScore: HTMLTableCellElement = document.createElement("td");
+
+                if (extraIndex == participants.length) {
+                    extraIndex = 0;
+                }
+
+                console.log(extraIndex);
+
+                tdMatch.innerHTML = "<p>" + participants[index].name + "</p> : <p>" + participants[extraIndex].name + "</p>";
+                tdMatch.className = "match";
+                tr.appendChild(tdMatch);
+
+                tdTime.innerText = "8:00";
+                tr.appendChild(tdTime);
+
+                tdScore.innerText = "0:0";
+                tr.appendChild(tdScore);
+
+                table.appendChild(tr);
+
+                extraIndex++;
+            }
+
+            tableGroup.appendChild(table);
+        }
 
     }
 
     function buildGroupTables(): void {
 
-        // function generateContent(_data: Data): void {
         for (let group in data) {
             let participants: Participants[] = data[group];
+            console.log(group);
             console.log(participants[0]);
-            console.log(participants[0].name);
-
-            console.log("bla: " + group);
-
-
-            // //create Table-Elements
-            // let table: HTMLTableElement = document.createElement("table");
-            // let tr1: HTMLTableRowElement = document.createElement("tr");
-            // let tr2: HTMLTableRowElement = document.createElement("tr");
-            // let tr3: HTMLTableRowElement = document.createElement("tr");
-            // let tr4: HTMLTableRowElement = document.createElement("tr");
-            // let th: HTMLElement = document.createElement("th");
-            // let td1Name: HTMLTableCellElement = document.createElement("td");
-            // let td1Points: HTMLTableCellElement = document.createElement("td");
-            // let td2Name: HTMLTableCellElement = document.createElement("td");
-            // let td2Points: HTMLTableCellElement = document.createElement("td");
-            // let td3Name: HTMLTableCellElement = document.createElement("td");
-            // let td3Points: HTMLTableCellElement = document.createElement("td");
-
-            // //get Group-Div
-            // let tableGroup: HTMLElement = <HTMLElement>document.querySelector(".group" + group);
-            // console.log(tableGroup);
-
-            // //add Content to Table-Elements & them to Group-Div
-            // th.innerText = "Gruppe " + group;
-            // tr1.appendChild(th);
-            // table.appendChild(tr1);
-
-            // td1Name.innerText = max[0];
-            // tr2.appendChild(td1Name);
-            // td1Points.innerText = max[1] + " P.";
-            // tr2.appendChild(td1Points);
-            // table.appendChild(tr2);
-
-            // td2Name.innerText = simon[0];
-            // tr3.appendChild(td2Name);
-            // td2Points.innerText = simon[1] + " P.";
-            // tr3.appendChild(td2Points);
-            // table.appendChild(tr3);
-
-            // td3Name.innerText = justin[0];
-            // tr4.appendChild(td3Name);
-            // td3Points.innerText = justin[1] + " P.";
-            // tr4.appendChild(td3Points);
-            // table.appendChild(tr4);
-
-            // tableGroup.appendChild(table);
-        }
-        // }
-
-        let groupArray: string[] = ["A", "B", "C", "D"];
-
-        for (let index: number = 0; index < groupArray.length; index++) {
-            console.log(groupArray[index]);
+            // console.log(participants[0].name);
+            console.log(participants[1]);
+            console.log(participants[2]);
 
             //create Table-Elements
             let table: HTMLTableElement = document.createElement("table");
-            let tr1: HTMLTableRowElement = document.createElement("tr");
-            let tr2: HTMLTableRowElement = document.createElement("tr");
-            let tr3: HTMLTableRowElement = document.createElement("tr");
-            let tr4: HTMLTableRowElement = document.createElement("tr");
+            let trHeader: HTMLTableRowElement = document.createElement("tr");
             let th: HTMLElement = document.createElement("th");
-            let td1Name: HTMLTableCellElement = document.createElement("td");
-            let td1Points: HTMLTableCellElement = document.createElement("td");
-            let td2Name: HTMLTableCellElement = document.createElement("td");
-            let td2Points: HTMLTableCellElement = document.createElement("td");
-            let td3Name: HTMLTableCellElement = document.createElement("td");
-            let td3Points: HTMLTableCellElement = document.createElement("td");
 
             //get Group-Div
-            let tableGroup: HTMLElement = <HTMLElement>document.querySelector(".group" + groupArray[index]);
-            console.log(tableGroup);
+            let tableGroup: HTMLElement = <HTMLElement>document.querySelector(".group" + group);
 
             //add Content to Table-Elements & them to Group-Div
-            th.innerText = "Gruppe " + groupArray[index];
-            tr1.appendChild(th);
-            table.appendChild(tr1);
+            th.innerText = "Gruppe " + group;
+            trHeader.appendChild(th);
+            table.appendChild(trHeader);
 
-            td1Name.innerText = max[0];
-            tr2.appendChild(td1Name);
-            td1Points.innerText = max[1] + " P.";
-            tr2.appendChild(td1Points);
-            table.appendChild(tr2);
+            for (let index: number = 0; index < participants.length; index++) {
 
-            td2Name.innerText = simon[0];
-            tr3.appendChild(td2Name);
-            td2Points.innerText = simon[1] + " P.";
-            tr3.appendChild(td2Points);
-            table.appendChild(tr3);
+                let tr: HTMLTableRowElement = document.createElement("tr");
+                let tdName: HTMLTableCellElement = document.createElement("td");
+                let tdPoints: HTMLTableCellElement = document.createElement("td");
 
-            td3Name.innerText = justin[0];
-            tr4.appendChild(td3Name);
-            td3Points.innerText = justin[1] + " P.";
-            tr4.appendChild(td3Points);
-            table.appendChild(tr4);
+                tdName.innerText = participants[index].name;
+                tr.appendChild(tdName);
+                tdPoints.innerText = participants[index].points + " P.";
+                tr.appendChild(tdPoints);
+                table.appendChild(tr);
+
+            }
 
             tableGroup.appendChild(table);
         }
-
-
-
 
     }
 
