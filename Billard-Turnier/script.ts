@@ -4,6 +4,8 @@ namespace BillardTurnier {
 
     function handleLoad(): void {
 
+        summarizePoints();
+
         buildTree();
         buildGroupTables();
 
@@ -20,8 +22,12 @@ namespace BillardTurnier {
 
     function groupMatches(): void {
 
-        for (let group in data) {
-            let participants: Participants[] = data[group];
+        for (let part in matches) {
+            let match: Match[] = matches[part];
+
+            console.log(part);
+
+            let extraIndex: number = 1;
 
             //create Table-Elements
             let table: HTMLTableElement = document.createElement("table");
@@ -29,17 +35,14 @@ namespace BillardTurnier {
             let th: HTMLElement = document.createElement("th");
 
             //get Group-Div
-            let tableGroup: HTMLElement = <HTMLElement>document.querySelector(".treeG" + group);
+            let tableGroup: HTMLElement = <HTMLElement>document.querySelector(".treeG" + part);
 
             //add Content to Table-Elements & them to Group-Div
-            th.innerText = "Gruppe " + group;
+            th.innerText = "Gruppe " + part;
             trHeader.appendChild(th);
             table.appendChild(trHeader);
 
-
-            let extraIndex: number = 1;
-
-            for (let index: number = 0; index < participants.length; index++) {
+            for (let index: number = 0; index < match.length; index++) {
 
                 let tr: HTMLTableRowElement = document.createElement("tr");
 
@@ -47,13 +50,7 @@ namespace BillardTurnier {
                 let tdTime: HTMLTableCellElement = document.createElement("td");
                 let tdScore: HTMLTableCellElement = document.createElement("td");
 
-                if (extraIndex == participants.length) {
-                    extraIndex = 0;
-                }
-
-                console.log(extraIndex);
-
-                tdMatch.innerHTML = "<p>" + participants[index].name + "</p> : <p>" + participants[extraIndex].name + "</p>";
+                tdMatch.innerHTML = "<p>" + match[index].name1 + "</p> : <p>" + match[index].name2 + "</p>";
                 tdMatch.className = "match";
                 tr.appendChild(tdMatch);
 
@@ -65,7 +62,6 @@ namespace BillardTurnier {
 
                 table.appendChild(tr);
 
-                extraIndex++;
             }
 
             tableGroup.appendChild(table);

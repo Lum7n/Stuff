@@ -3,6 +3,7 @@ var BillardTurnier;
 (function (BillardTurnier) {
     window.addEventListener("load", handleLoad);
     function handleLoad() {
+        BillardTurnier.summarizePoints();
         buildTree();
         buildGroupTables();
     }
@@ -13,29 +14,26 @@ var BillardTurnier;
         // finalMatches();
     }
     function groupMatches() {
-        for (let group in BillardTurnier.data) {
-            let participants = BillardTurnier.data[group];
+        for (let part in BillardTurnier.matches) {
+            let match = BillardTurnier.matches[part];
+            console.log(part);
+            let extraIndex = 1;
             //create Table-Elements
             let table = document.createElement("table");
             let trHeader = document.createElement("tr");
             let th = document.createElement("th");
             //get Group-Div
-            let tableGroup = document.querySelector(".treeG" + group);
+            let tableGroup = document.querySelector(".treeG" + part);
             //add Content to Table-Elements & them to Group-Div
-            th.innerText = "Gruppe " + group;
+            th.innerText = "Gruppe " + part;
             trHeader.appendChild(th);
             table.appendChild(trHeader);
-            let extraIndex = 1;
-            for (let index = 0; index < participants.length; index++) {
+            for (let index = 0; index < match.length; index++) {
                 let tr = document.createElement("tr");
                 let tdMatch = document.createElement("td");
                 let tdTime = document.createElement("td");
                 let tdScore = document.createElement("td");
-                if (extraIndex == participants.length) {
-                    extraIndex = 0;
-                }
-                console.log(extraIndex);
-                tdMatch.innerHTML = "<p>" + participants[index].name + "</p> : <p>" + participants[extraIndex].name + "</p>";
+                tdMatch.innerHTML = "<p>" + match[index].name1 + "</p> : <p>" + match[index].name2 + "</p>";
                 tdMatch.className = "match";
                 tr.appendChild(tdMatch);
                 tdTime.innerText = "8:00";
@@ -43,7 +41,6 @@ var BillardTurnier;
                 tdScore.innerText = "0:0";
                 tr.appendChild(tdScore);
                 table.appendChild(tr);
-                extraIndex++;
             }
             tableGroup.appendChild(table);
         }
