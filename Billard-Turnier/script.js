@@ -66,7 +66,11 @@ var BillardTurnier;
                 for (let part in BillardTurnier.matches) {
                     if (part == "A") {
                         addMatchTable(part, value);
-                        // addGroupTable();
+                    }
+                }
+                for (let group in BillardTurnier.data) {
+                    if (group == "A") {
+                        addGroupTable(group);
                     }
                 }
                 break;
@@ -75,7 +79,11 @@ var BillardTurnier;
                 for (let part in BillardTurnier.matches) {
                     if (part == "B") {
                         addMatchTable(part, value);
-                        // addGroupTable();
+                    }
+                }
+                for (let group in BillardTurnier.data) {
+                    if (group == "B") {
+                        addGroupTable(group);
                     }
                 }
                 break;
@@ -84,7 +92,11 @@ var BillardTurnier;
                 for (let part in BillardTurnier.matches) {
                     if (part == "C") {
                         addMatchTable(part, value);
-                        // addGroupTable();
+                    }
+                }
+                for (let group in BillardTurnier.data) {
+                    if (group == "C") {
+                        addGroupTable(group);
                     }
                 }
                 break;
@@ -93,7 +105,11 @@ var BillardTurnier;
                 for (let part in BillardTurnier.matches) {
                     if (part == "D") {
                         addMatchTable(part, value);
-                        // addGroupTable();
+                    }
+                }
+                for (let group in BillardTurnier.data) {
+                    if (group == "D") {
+                        addGroupTable(group);
                     }
                 }
                 break;
@@ -103,7 +119,6 @@ var BillardTurnier;
                     if (part == "VF1") {
                         addMatchTable(part, value);
                         addMatchTable("VF2", "");
-                        // addGroupTable();
                     }
                 }
                 break;
@@ -112,7 +127,6 @@ var BillardTurnier;
                 for (let part in BillardTurnier.matches) {
                     if (part == "HF") {
                         addMatchTable(part, value);
-                        // addGroupTable();
                     }
                 }
                 break;
@@ -121,7 +135,6 @@ var BillardTurnier;
                 for (let part in BillardTurnier.matches) {
                     if (part == "Final") {
                         addMatchTable(part, value);
-                        // addGroupTable();
                     }
                 }
                 break;
@@ -135,7 +148,7 @@ var BillardTurnier;
         let table = document.createElement("table");
         let trHeader = document.createElement("tr");
         let th = document.createElement("th");
-        //get Group-Div
+        //get Div
         mobileTable = document.getElementById("mobileTable");
         //add Content to Table-Elements & them to Group-Div
         th.innerText = value;
@@ -158,6 +171,34 @@ var BillardTurnier;
             // tr.appendChild(tdFouls);
             table.appendChild(tr);
         }
+        mobileTable.appendChild(table);
+    }
+    function addGroupTable(group) {
+        let participants = BillardTurnier.data[group];
+        //create Table-Elements
+        let table = document.createElement("table");
+        let trHeader = document.createElement("tr");
+        let th = document.createElement("th");
+        //get Group-Div
+        mobileTable = document.getElementById("mobileTable");
+        //add Content to Table-Elements & them to Group-Div
+        th.innerText = "Gruppe " + group;
+        trHeader.appendChild(th);
+        table.appendChild(trHeader);
+        for (let index = 0; index < participants.length; index++) {
+            let tr = document.createElement("tr");
+            let tdName = document.createElement("td");
+            let tdPoints = document.createElement("td");
+            let tdFouls = document.createElement("td");
+            tdName.innerText = participants[index].name;
+            tr.appendChild(tdName);
+            tdPoints.innerText = participants[index].points + " P.";
+            tr.appendChild(tdPoints);
+            tdFouls.innerText = participants[index].fouls + " Fouls";
+            tr.appendChild(tdFouls);
+            table.appendChild(tr);
+        }
+        table.style.marginTop = "20px";
         mobileTable.appendChild(table);
     }
     function buildTree() {
@@ -264,10 +305,10 @@ var BillardTurnier;
     function buildGroupTables() {
         for (let group in BillardTurnier.data) {
             let participants = BillardTurnier.data[group];
-            console.log(group);
-            console.log(participants[0]);
-            console.log(participants[1]);
-            console.log(participants[2]);
+            // console.log(group);
+            // console.log(participants[0]);
+            // console.log(participants[1]);
+            // console.log(participants[2]);
             //create Table-Elements
             let table = document.createElement("table");
             let trHeader = document.createElement("tr");

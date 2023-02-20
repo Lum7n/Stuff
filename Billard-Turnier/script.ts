@@ -6,7 +6,6 @@ namespace BillardTurnier {
     let mobileTable: HTMLElement;
 
 
-
     function handleLoad(): void {
 
         sizeTest();
@@ -102,11 +101,16 @@ namespace BillardTurnier {
                     if (part == "A") {
 
                         addMatchTable(part, value);
-                        // addGroupTable();
-
-                    } 
+                    }
                 }
 
+                for (let group in data) {
+
+                    if (group == "A") {
+
+                        addGroupTable(group);
+                    }
+                }
                 break;
 
             case "Gruppe B":
@@ -117,11 +121,16 @@ namespace BillardTurnier {
                     if (part == "B") {
 
                         addMatchTable(part, value);
-                        // addGroupTable();
-
                     }
                 }
 
+                for (let group in data) {
+
+                    if (group == "B") {
+
+                        addGroupTable(group);
+                    }
+                }
                 break;
 
             case "Gruppe C":
@@ -132,11 +141,16 @@ namespace BillardTurnier {
                     if (part == "C") {
 
                         addMatchTable(part, value);
-                        // addGroupTable();
-
                     }
                 }
 
+                for (let group in data) {
+
+                    if (group == "C") {
+
+                        addGroupTable(group);
+                    }
+                }
                 break;
 
             case "Gruppe D":
@@ -147,11 +161,16 @@ namespace BillardTurnier {
                     if (part == "D") {
 
                         addMatchTable(part, value);
-                        // addGroupTable();
-
                     }
                 }
 
+                for (let group in data) {
+
+                    if (group == "D") {
+
+                        addGroupTable(group);
+                    }
+                }
                 break;
 
             case "Viertelfinale":
@@ -163,9 +182,6 @@ namespace BillardTurnier {
 
                         addMatchTable(part, value);
                         addMatchTable("VF2", "");
-
-                        // addGroupTable();
-
                     }
                 }
 
@@ -179,8 +195,6 @@ namespace BillardTurnier {
                     if (part == "HF") {
 
                         addMatchTable(part, value);
-                        // addGroupTable();
-
                     }
                 }
 
@@ -194,8 +208,6 @@ namespace BillardTurnier {
                     if (part == "Final") {
 
                         addMatchTable(part, value);
-                        // addGroupTable();
-
                     }
                 }
 
@@ -215,7 +227,7 @@ namespace BillardTurnier {
         let trHeader: HTMLTableRowElement = document.createElement("tr");
         let th: HTMLElement = document.createElement("th");
 
-        //get Group-Div
+        //get Div
         mobileTable = <HTMLElement>document.getElementById("mobileTable");
 
         //add Content to Table-Elements & them to Group-Div
@@ -251,6 +263,42 @@ namespace BillardTurnier {
 
         mobileTable.appendChild(table);
 
+    }
+
+    function addGroupTable(group: string): void {
+        let participants: Participants[] = data[group];
+
+        //create Table-Elements
+        let table: HTMLTableElement = document.createElement("table");
+        let trHeader: HTMLTableRowElement = document.createElement("tr");
+        let th: HTMLElement = document.createElement("th");
+
+        //get Group-Div
+        mobileTable = <HTMLElement>document.getElementById("mobileTable");
+
+        //add Content to Table-Elements & them to Group-Div
+        th.innerText = "Gruppe " + group;
+        trHeader.appendChild(th);
+        table.appendChild(trHeader);
+
+        for (let index: number = 0; index < participants.length; index++) {
+
+            let tr: HTMLTableRowElement = document.createElement("tr");
+            let tdName: HTMLTableCellElement = document.createElement("td");
+            let tdPoints: HTMLTableCellElement = document.createElement("td");
+            let tdFouls: HTMLTableCellElement = document.createElement("td");
+
+            tdName.innerText = participants[index].name;
+            tr.appendChild(tdName);
+            tdPoints.innerText = participants[index].points + " P.";
+            tr.appendChild(tdPoints);
+            tdFouls.innerText = participants[index].fouls + " Fouls";
+            tr.appendChild(tdFouls);
+            table.appendChild(tr);
+
+        }
+        table.style.marginTop = "20px";
+        mobileTable.appendChild(table);
     }
 
     function buildTree(): void {
@@ -409,10 +457,10 @@ namespace BillardTurnier {
 
         for (let group in data) {
             let participants: Participants[] = data[group];
-            console.log(group);
-            console.log(participants[0]);
-            console.log(participants[1]);
-            console.log(participants[2]);
+            // console.log(group);
+            // console.log(participants[0]);
+            // console.log(participants[1]);
+            // console.log(participants[2]);
 
             //create Table-Elements
             let table: HTMLTableElement = document.createElement("table");
