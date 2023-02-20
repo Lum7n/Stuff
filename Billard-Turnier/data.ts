@@ -28,14 +28,14 @@ namespace BillardTurnier {
             { name1: "Luis", points1: 0, fouls1: 0, name2: "Vincent", points2: 0, fouls2: 0, date: "Mittwoch, 14:00 Uhr" }
         ],
         C: [
-            { name1: "Sigi", points1: 0, fouls1: 0, name2: "Jan", points2: 0, fouls2: 0, date: "Dienstag, 16:00 Uhr" },
-            { name1: "Jan", points1: 0, fouls1: 0, name2: "Ulla", points2: 0, fouls2: 0, date: "Dienstag, 18:00 Uhr" },
-            { name1: "Ulla", points1: 0, fouls1: 0, name2: "Sigi", points2: 0, fouls2: 0, date: "Dienstag, 20:00 Uhr" }
+            { name1: "Sigi", points1: 0, fouls1: 0, name2: "Jan", points2: 0, fouls2: 0, date: "Mittwoch, 16:00 Uhr" },
+            { name1: "Jan", points1: 0, fouls1: 0, name2: "Ulla", points2: 0, fouls2: 0, date: "Mittwoch, 18:00 Uhr" },
+            { name1: "Ulla", points1: 0, fouls1: 0, name2: "Sigi", points2: 0, fouls2: 0, date: "Mittwoch, 20:00 Uhr" }
         ],
         D: [
-            { name1: "Linda", points1: 0, fouls1: 0, name2: "Alex", points2: 0, fouls2: 0, date: "Mittwoch, 16:00 Uhr" },
-            { name1: "Alex", points1: 0, fouls1: 0, name2: "Valentin", points2: 0, fouls2: 0, date: "Mittwoch, 18:00 Uhr" },
-            { name1: "Valentin", points1: 0, fouls1: 0, name2: "Linda", points2: 0, fouls2: 0, date: "Mittwoch, 20:00 Uhr" }
+            { name1: "Linda", points1: 0, fouls1: 0, name2: "Alex", points2: 0, fouls2: 0, date: "Dienstag, 16:00 Uhr" },
+            { name1: "Alex", points1: 0, fouls1: 0, name2: "Valentin", points2: 0, fouls2: 0, date: "Dienstag, 18:00 Uhr" },
+            { name1: "Valentin", points1: 0, fouls1: 0, name2: "Linda", points2: 0, fouls2: 0, date: "Dienstag, 20:00 Uhr" }
         ],
         VF1: [
             { name1: "A1", points1: 0, fouls1: 0, name2: "B2", points2: 0, fouls2: 0, date: "Samstag, 8:00 Uhr" },
