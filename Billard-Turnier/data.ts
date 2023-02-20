@@ -103,7 +103,7 @@ namespace BillardTurnier {
                 case "C":
                 case "D":
 
-                    console.log(part);
+                    // console.log(part);
 
                     let points1: number = match[0].points1 + match[2].points2;
                     let fouls1: number = match[0].fouls1 + match[2].fouls2;
@@ -191,7 +191,7 @@ namespace BillardTurnier {
                 case "HF":
                 case "Final":
 
-                    console.log("emptySummarize: " + part);
+                    // console.log("emptySummarize: " + part);
                     break;
 
                 default:

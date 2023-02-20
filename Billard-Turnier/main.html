@@ -12,9 +12,24 @@
 </head>
 
 <body>
-    <h1>AStA Billard-Turnier</h1>
+    <h1 id="headline">AStA Billard-Turnier</h1>
 
-    <div class="tree">
+    <div id="selection">
+        <select>
+            <option value="default">...</option>
+            <option value="Gruppe A">Gruppe A</option>
+            <option value="Gruppe B">Gruppe B</option>
+            <option value="Gruppe C">Gruppe C</option>
+            <option value="Gruppe D">Gruppe D</option>
+            <option value="Viertelfinale">Viertelfinale</option>
+            <option value="Halbfinale">Halbfinale</option>
+            <option value="Finale">Finale</option>
+        </select>
+    </div>
+
+    <div id="mobileTable"></div>
+
+    <div id="tree">
         <div class="treeGA"></div>
         <div class="treeGB"></div>
         <div class="treeGC"></div>
@@ -25,7 +40,7 @@
         <div class="treeFinal"></div>
     </div>
 
-    <div class="groupTable">
+    <div id="groupTable">
         <div class="groupA"></div>
         <div class="groupB"></div>
         <div class="groupC"></div>

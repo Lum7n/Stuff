@@ -1,6 +1,20 @@
+body {
+    font-family: 'Times New Roman', Times, serif;
+}
+
 h1 {
     text-align: center;
     margin: 20px 0px 10px 0px;
+}
+
+#mobileTable {
+    margin-top: 20px;
+}
+
+select {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 22px;
+    margin-top: 5px;
 }
 
 .treeGA { grid-area: GroupA; }
@@ -13,7 +27,7 @@ h1 {
 .treeFinal { grid-area: Final;}
 
 
-.tree {
+#tree {
     display: grid;
     grid-template-areas:
     'GroupA     .           Halb        .           GroupC'
@@ -100,7 +114,7 @@ p {
     border-color: wheat;
 }
 
-.groupTable {
+#groupTable {
     display: grid;
     grid-template-columns: auto auto auto auto;
     height: 120px;
@@ -110,7 +124,7 @@ p {
     margin: auto
 }
 
-.groupTable div {
+#groupTable div {
     padding: 0px 20px 0px 20px;
 }
 

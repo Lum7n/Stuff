@@ -70,7 +70,7 @@ var BillardTurnier;
                 case "B":
                 case "C":
                 case "D":
-                    console.log(part);
+                    // console.log(part);
                     let points1 = match[0].points1 + match[2].points2;
                     let fouls1 = match[0].fouls1 + match[2].fouls2;
                     let points2 = match[0].points2 + match[1].points1;
@@ -131,7 +131,7 @@ var BillardTurnier;
                 case "VF2":
                 case "HF":
                 case "Final":
-                    console.log("emptySummarize: " + part);
+                    // console.log("emptySummarize: " + part);
                     break;
                 default:
                     break;

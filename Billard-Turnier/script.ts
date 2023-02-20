@@ -2,7 +2,17 @@ namespace BillardTurnier {
 
     window.addEventListener("load", handleLoad);
 
+    let screenType: string;
+    let mobileTable: HTMLElement;
+
+
+
     function handleLoad(): void {
+
+        sizeTest();
+
+        let input: HTMLInputElement = <HTMLInputElement>document.getElementById("selection");
+        input.addEventListener("change", handleSelection);
 
         summarizePoints();
 
@@ -11,16 +21,245 @@ namespace BillardTurnier {
 
     }
 
-    function buildTree(): void {
+    function sizeTest(): void {
 
-        groupMatches();
-        // quarterMatches();
-        // halfMatches();
-        // finalMatches();
+        let screenWidth: number = screen.width;
+        let screenHeight: number = screen.height;
+
+        console.log("Width: ", screenWidth);
+        console.log("Height: ", screenHeight);
+
+        if (screenWidth < screenHeight) {
+            // console.log("vertical");
+            screenType = "vertical";
+
+            verticalAdjustments();
+
+
+        } else if (screenWidth > screenHeight) {
+            // console.log("horizontal");
+            screenType = "horizontal";
+
+            horizontalAdjustments();
+
+
+        } else {
+            console.log("fehler");
+        }
+
+        console.log(screenType);
 
     }
 
-    function groupMatches(): void {
+    function verticalAdjustments(): void {
+
+        let selection: HTMLDivElement = <HTMLDivElement>document.getElementById("selection");
+        selection.style.display = "";
+
+        let tree: HTMLDivElement = <HTMLDivElement>document.getElementById("tree");
+        tree.style.display = "none";
+        // tree.innerHTML = "";
+
+        let groupTable: HTMLDivElement = <HTMLDivElement>document.getElementById("groupTable");
+        groupTable.style.display = "none";
+        // groupTable.innerHTML = "";
+
+        let headline: HTMLDivElement = <HTMLDivElement>document.getElementById("headline");
+        headline.style.textAlign = "left";
+        headline.style.fontSize = "28px";
+
+    }
+
+    function horizontalAdjustments(): void {
+
+        let selection: HTMLDivElement = <HTMLDivElement>document.getElementById("selection");
+        selection.style.display = "none";
+
+        let tree: HTMLDivElement = <HTMLDivElement>document.getElementById("tree");
+        tree.style.display = "";
+
+        let groupTable: HTMLDivElement = <HTMLDivElement>document.getElementById("groupTable");
+        groupTable.style.display = "";
+
+    }
+
+    function handleSelection(_event: Event): void {
+
+        let target: HTMLInputElement = <HTMLInputElement>_event.target;
+        console.log(target.value);
+        let value: string = target.value;
+
+        // get Div
+        mobileTable = <HTMLElement>document.getElementById("mobileTable");
+        mobileTable.innerHTML = "";
+
+        switch (value) {
+            case "Gruppe A":
+                console.log("A-Selected");
+
+                for (let part in matches) {
+
+                    if (part == "A") {
+
+                        addMatchTable(part, value);
+                        // addGroupTable();
+
+                    } 
+                }
+
+                break;
+
+            case "Gruppe B":
+                console.log("B-Selected");
+
+                for (let part in matches) {
+
+                    if (part == "B") {
+
+                        addMatchTable(part, value);
+                        // addGroupTable();
+
+                    }
+                }
+
+                break;
+
+            case "Gruppe C":
+                console.log("C-Selected");
+
+                for (let part in matches) {
+
+                    if (part == "C") {
+
+                        addMatchTable(part, value);
+                        // addGroupTable();
+
+                    }
+                }
+
+                break;
+
+            case "Gruppe D":
+                console.log("D-Selected");
+
+                for (let part in matches) {
+
+                    if (part == "D") {
+
+                        addMatchTable(part, value);
+                        // addGroupTable();
+
+                    }
+                }
+
+                break;
+
+            case "Viertelfinale":
+                console.log("VF-Selected");
+
+                for (let part in matches) {
+
+                    if (part == "VF1") {
+
+                        addMatchTable(part, value);
+                        addMatchTable("VF2");
+
+                        // addGroupTable();
+
+                    }
+                }
+
+                break;
+
+            case "Halbfinale":
+                console.log("HF-Selected");
+
+                for (let part in matches) {
+
+                    if (part == "HF") {
+
+                        addMatchTable(part, value);
+                        // addGroupTable();
+
+                    }
+                }
+
+                break;
+
+            case "Finale":
+                console.log("F-Selected");
+
+                for (let part in matches) {
+
+                    if (part == "Final") {
+
+                        addMatchTable(part, value);
+                        // addGroupTable();
+
+                    }
+                }
+
+                break;
+
+            default:
+                break;
+        }
+
+    }
+
+    function addMatchTable(part: string, value: string): void {
+        let match: Match[] = matches[part];
+
+        //create Table-Elements
+        let table: HTMLTableElement = document.createElement("table");
+        let trHeader: HTMLTableRowElement = document.createElement("tr");
+        let th: HTMLElement = document.createElement("th");
+
+        //get Group-Div
+        mobileTable = <HTMLElement>document.getElementById("mobileTable");
+
+        //add Content to Table-Elements & them to Group-Div
+        th.innerText = value;
+        trHeader.appendChild(th);
+        table.appendChild(trHeader);
+
+        for (let index: number = 0; index < match.length; index++) {
+
+            let tr: HTMLTableRowElement = document.createElement("tr");
+            let date: HTMLTableRowElement = document.createElement("tr");
+
+            let tdMatch: HTMLTableCellElement = document.createElement("td");
+            let tdScore: HTMLTableCellElement = document.createElement("td");
+            // let tdFouls: HTMLTableCellElement = document.createElement("td");
+
+            date.innerText = match[index].date;
+            table.appendChild(date);
+
+            tdMatch.innerHTML = "<p>" + match[index].name1 + "</p> : <p>" + match[index].name2 + "</p>";
+            tdMatch.className = "match";
+            tr.appendChild(tdMatch);
+
+            tdScore.innerText = match[index].points1 + " : " + match[index].points2;
+            tr.appendChild(tdScore);
+
+            // tdFouls.innerText = match[index].fouls1 + " Fouls";
+            // tr.appendChild(tdFouls);
+
+            table.appendChild(tr);
+
+        }
+
+        mobileTable.appendChild(table);
+
+    }
+
+    function buildTree(): void {
+
+        buildMatches();
+
+    }
+
+    function buildMatches(): void {
 
         for (let part in matches) {
             let match: Match[] = matches[part];
@@ -37,8 +276,6 @@ namespace BillardTurnier {
                 case "B":
                 case "C":
                 case "D":
-
-                    console.log(part);
 
                     //get Group-Div
                     tableGroup = <HTMLElement>document.querySelector(".treeG" + part);
@@ -80,8 +317,6 @@ namespace BillardTurnier {
                 case "HF":
                 case "Final":
 
-                    console.log("leerMatches: " + part);
-
                     let date: HTMLTableRowElement = document.createElement("tr");
 
                     //get Div
@@ -94,7 +329,7 @@ namespace BillardTurnier {
                             th.innerText = "Viertelfinale 1";
                             trHeader.appendChild(th);
                             table.appendChild(trHeader);
-        
+
                             date.innerText = "Samstag, ab 12:00 Uhr";
                             table.appendChild(date);
                             break;
@@ -104,7 +339,7 @@ namespace BillardTurnier {
                             th.innerText = "Viertelfinale 2";
                             trHeader.appendChild(th);
                             table.appendChild(trHeader);
-        
+
                             date.innerText = "Samstag, ab 8:00 Uhr";
                             table.appendChild(date);
 
@@ -115,7 +350,7 @@ namespace BillardTurnier {
                             th.innerText = "Halbfinale";
                             trHeader.appendChild(th);
                             table.appendChild(trHeader);
-        
+
                             date.innerText = "Samstag, ab 16:00 Uhr";
                             table.appendChild(date);
 
@@ -126,7 +361,7 @@ namespace BillardTurnier {
                             th.innerText = part + "e";
                             trHeader.appendChild(th);
                             table.appendChild(trHeader);
-        
+
                             date.innerText = "Samstag, ab 20:00 Uhr";
                             table.appendChild(date);
 
