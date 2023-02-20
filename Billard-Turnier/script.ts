@@ -162,7 +162,7 @@ namespace BillardTurnier {
                     if (part == "VF1") {
 
                         addMatchTable(part, value);
-                        addMatchTable("VF2");
+                        addMatchTable("VF2", "");
 
                         // addGroupTable();
 
