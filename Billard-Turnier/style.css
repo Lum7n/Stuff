@@ -1,3 +1,7 @@
+h1 {
+    text-align: center;
+}
+
 .treeGA { grid-area: GroupA; }
 .treeGB { grid-area: GroupB; }
 .treeGC { grid-area: GroupC; }
@@ -20,33 +24,32 @@
     width: fit-content;
     height: 350px;
     padding: 30px;
-    background-color: beige;
     margin: auto;
 }
 
 .treeGA {
-    background-color: aqua;
+    background-color: #f5dcf3;
     padding: 20px;
 }
 
 .treeGB {
-    background-color: green;
+    background-color: #dfdcf5;
     padding: 20px;
 }
 
 .treeGC {
-    background-color: greenyellow;
+    background-color: #d7eecd;
     padding: 20px;
 }
 
 .treeGD {
-    background-color: rebeccapurple;
+    background-color: #cdeee0;
     padding: 20px;
 }
 
 p {
     margin: 2px;
-    width: 70px;
+    width: 60px;
     text-align: center;
 }
 
@@ -57,22 +60,44 @@ p {
 
 
 .treeVF1 {
-    background-color: red;
-
+    display: flex;
+    align-items: center;
+    background-color: #d87093;
+    padding: 20px;
+    height: fit-content;
 }
 
 .treeVF2 {
-    background-color: yellow;
-
+    display: flex;
+    align-items: center;
+    background-color: #98fb98;
+    padding: 20px;
+    height: fit-content;
 }
 
 .treeHF {
-    background-color: brown;
+    display: flex;
+    align-items: center;
+    background-color: #8690ca;
+    padding: 20px;
+    height: fit-content;
 }
 
 .treeFinal {
-    background-color: blue;
+    display: flex;
+    align-items: center;
+    background-color: #333272;
+    padding: 20px;
+    height: fit-content;
+    color: wheat;
+}
 
+.treeFinal table {
+    border-color: wheat;
+}
+
+.treeFinal td {
+    border-color: wheat;
 }
 
 
@@ -81,17 +106,17 @@ p {
     grid-template-columns: auto auto auto auto;
     height: 120px;
     width: fit-content;
-    padding: 30px;
-    background-color: #dcf5e7;
-    margin: auto;
+    padding: 40px;
+    background-color: #f5f5dc;
+    margin: auto
 }
 
 .groupTable div {
-    padding: 0px 50px 0px 0px;
+    padding: 0px 20px 0px 20px;
 }
 
 table, td {
-    border:1px solid black;
+    border: 1px solid black;
     padding: 3px;
 }
 

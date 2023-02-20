@@ -36,15 +36,15 @@ var BillardTurnier;
                     for (let index = 0; index < match.length; index++) {
                         let tr = document.createElement("tr");
                         let tdMatch = document.createElement("td");
-                        let tdTime = document.createElement("td");
                         let tdScore = document.createElement("td");
+                        // let tdFouls: HTMLTableCellElement = document.createElement("td");
                         tdMatch.innerHTML = "<p>" + match[index].name1 + "</p> : <p>" + match[index].name2 + "</p>";
                         tdMatch.className = "match";
                         tr.appendChild(tdMatch);
-                        tdTime.innerText = "8:00";
-                        tr.appendChild(tdTime);
-                        tdScore.innerText = "0:0";
+                        tdScore.innerText = match[index].points1 + " : " + match[index].points2;
                         tr.appendChild(tdScore);
+                        // tdFouls.innerText = match[index].fouls1 + " Fouls";
+                        // tr.appendChild(tdFouls);
                         table.appendChild(tr);
                     }
                     break;
@@ -53,6 +53,26 @@ var BillardTurnier;
                 case "HF":
                 case "Final":
                     console.log("leerMatches: " + part);
+                    //get Div
+                    tableGroup = document.querySelector(".tree" + part);
+                    //add Content to Table-Elements & them to Div
+                    th.innerText = part;
+                    trHeader.appendChild(th);
+                    table.appendChild(trHeader);
+                    for (let index = 0; index < match.length; index++) {
+                        let tr = document.createElement("tr");
+                        let tdMatch = document.createElement("td");
+                        let tdScore = document.createElement("td");
+                        // let tdFouls: HTMLTableCellElement = document.createElement("td");
+                        tdMatch.innerHTML = "<p>" + match[index].name1 + "</p> : <p>" + match[index].name2 + "</p>";
+                        tdMatch.className = "match";
+                        tr.appendChild(tdMatch);
+                        tdScore.innerText = match[index].points1 + " : " + match[index].points2;
+                        tr.appendChild(tdScore);
+                        // tdFouls.innerText = match[index].fouls1 + " Fouls";
+                        // tr.appendChild(tdFouls);
+                        table.appendChild(tr);
+                    }
                     break;
                 default:
                     break;
