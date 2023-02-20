@@ -1,5 +1,6 @@
 h1 {
     text-align: center;
+    margin: 20px 0px 10px 0px;
 }
 
 .treeGA { grid-area: GroupA; }
