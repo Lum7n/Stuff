@@ -9,6 +9,7 @@ namespace BillardTurnier {
         name2: string;
         points2: number;
         fouls2: number;
+        date: string;
     }
 
     export interface Matches {
@@ -17,39 +18,39 @@ namespace BillardTurnier {
 
     export let matches: Matches = {
         A: [
-            { name1: "Max", points1: 5, fouls1: 10, name2: "Simon", points2: 1, fouls2: 0 },
-            { name1: "Simon", points1: 1, fouls1: 0, name2: "Justin", points2: 10, fouls2: 0 },
-            { name1: "Justin", points1: 10, fouls1: 0, name2: "Max", points2: 3, fouls2: 1 }
+            { name1: "Max", points1: 0, fouls1: 0, name2: "Simon", points2: 0, fouls2: 0, date: "Dienstag, 10:00 Uhr" },
+            { name1: "Simon", points1: 0, fouls1: 0, name2: "Justin", points2: 0, fouls2: 0, date: "Dienstag, 12:00 Uhr" },
+            { name1: "Justin", points1: 0, fouls1: 0, name2: "Max", points2: 0, fouls2: 0, date: "Dienstag, 14:00 Uhr" }
         ],
         B: [
-            { name1: "Vincent", points1: 0, fouls1: 0, name2: "Ben", points2: 0, fouls2: 0 },
-            { name1: "Ben", points1: 0, fouls1: 0, name2: "Luis", points2: 5, fouls2: 0 },
-            { name1: "Luis", points1: 50, fouls1: 0, name2: "Vincent", points2: 0, fouls2: 0 }
+            { name1: "Vincent", points1: 0, fouls1: 0, name2: "Ben", points2: 0, fouls2: 0, date: "Mittwoch, 10:00 Uhr" },
+            { name1: "Ben", points1: 0, fouls1: 0, name2: "Luis", points2: 0, fouls2: 0, date: "Mittwoch, 12:00 Uhr" },
+            { name1: "Luis", points1: 0, fouls1: 0, name2: "Vincent", points2: 0, fouls2: 0, date: "Mittwoch, 14:00 Uhr" }
         ],
         C: [
-            { name1: "Sigi", points1: 0, fouls1: 0, name2: "Jan", points2: 0, fouls2: 0 },
-            { name1: "Jan", points1: 0, fouls1: 0, name2: "Ulla", points2: 0, fouls2: 0 },
-            { name1: "Ulla", points1: 0, fouls1: 0, name2: "Sigi", points2: 0, fouls2: 0 }
+            { name1: "Sigi", points1: 0, fouls1: 0, name2: "Jan", points2: 0, fouls2: 0, date: "Dienstag, 16:00 Uhr" },
+            { name1: "Jan", points1: 0, fouls1: 0, name2: "Ulla", points2: 0, fouls2: 0, date: "Dienstag, 18:00 Uhr" },
+            { name1: "Ulla", points1: 0, fouls1: 0, name2: "Sigi", points2: 0, fouls2: 0, date: "Dienstag, 20:00 Uhr" }
         ],
         D: [
-            { name1: "Linda", points1: 0, fouls1: 0, name2: "Alex", points2: 0, fouls2: 0 },
-            { name1: "Alex", points1: 0, fouls1: 0, name2: "Valentin", points2: 0, fouls2: 0 },
-            { name1: "Valentin", points1: 0, fouls1: 0, name2: "Linda", points2: 0, fouls2: 0 }
+            { name1: "Linda", points1: 0, fouls1: 0, name2: "Alex", points2: 0, fouls2: 0, date: "Mittwoch, 16:00 Uhr" },
+            { name1: "Alex", points1: 0, fouls1: 0, name2: "Valentin", points2: 0, fouls2: 0, date: "Mittwoch, 18:00 Uhr" },
+            { name1: "Valentin", points1: 0, fouls1: 0, name2: "Linda", points2: 0, fouls2: 0, date: "Mittwoch, 20:00 Uhr" }
         ],
         VF1: [
-            { name1: "A1", points1: 0, fouls1: 0, name2: "B2", points2: 0, fouls2: 0 },
-            { name1: "B1", points1: 0, fouls1: 0, name2: "A2", points2: 0, fouls2: 0 }
+            { name1: "A1", points1: 0, fouls1: 0, name2: "B2", points2: 0, fouls2: 0, date: "Samstag, 8:00 Uhr" },
+            { name1: "B1", points1: 0, fouls1: 0, name2: "A2", points2: 0, fouls2: 0, date: "Samstag, 10:00 Uhr" }
         ],
         VF2: [
-            { name1: "C1", points1: 0, fouls1: 0, name2: "D2", points2: 0, fouls2: 0 },
-            { name1: "D1", points1: 0, fouls1: 0, name2: "C2", points2: 0, fouls2: 0 }
+            { name1: "C1", points1: 0, fouls1: 0, name2: "D2", points2: 0, fouls2: 0, date: "Samstag, 12:00 Uhr" },
+            { name1: "D1", points1: 0, fouls1: 0, name2: "C2", points2: 0, fouls2: 0, date: "Samstag, 14:00 Uhr" }
         ],
         HF: [
-            { name1: "VF1", points1: 0, fouls1: 0, name2: "VF3", points2: 0, fouls2: 0 },
-            { name1: "VF2", points1: 0, fouls1: 0, name2: "VF4", points2: 0, fouls2: 0 }
+            { name1: "VF1", points1: 0, fouls1: 0, name2: "VF3", points2: 0, fouls2: 0, date: "Samstag, 16:00 Uhr" },
+            { name1: "VF2", points1: 0, fouls1: 0, name2: "VF4", points2: 0, fouls2: 0, date: "Samstag, 18:00 Uhr" }
         ],
         Final: [
-            { name1: "HF1", points1: 0, fouls1: 0, name2: "HF2", points2: 0, fouls2: 0 }
+            { name1: "HF1", points1: 0, fouls1: 0, name2: "HF2", points2: 0, fouls2: 0, date: "Samstag, 20:00 Uhr" }
         ]
     };
 

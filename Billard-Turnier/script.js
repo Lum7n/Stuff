@@ -35,9 +35,12 @@ var BillardTurnier;
                     table.appendChild(trHeader);
                     for (let index = 0; index < match.length; index++) {
                         let tr = document.createElement("tr");
+                        let date = document.createElement("tr");
                         let tdMatch = document.createElement("td");
                         let tdScore = document.createElement("td");
                         // let tdFouls: HTMLTableCellElement = document.createElement("td");
+                        date.innerText = match[index].date;
+                        table.appendChild(date);
                         tdMatch.innerHTML = "<p>" + match[index].name1 + "</p> : <p>" + match[index].name2 + "</p>";
                         tdMatch.className = "match";
                         tr.appendChild(tdMatch);
@@ -53,12 +56,42 @@ var BillardTurnier;
                 case "HF":
                 case "Final":
                     console.log("leerMatches: " + part);
+                    let date = document.createElement("tr");
                     //get Div
                     tableGroup = document.querySelector(".tree" + part);
                     //add Content to Table-Elements & them to Div
-                    th.innerText = part;
-                    trHeader.appendChild(th);
-                    table.appendChild(trHeader);
+                    switch (part) {
+                        case "VF1":
+                            th.innerText = "Viertelfinale 1";
+                            trHeader.appendChild(th);
+                            table.appendChild(trHeader);
+                            date.innerText = "Samstag, ab 12:00 Uhr";
+                            table.appendChild(date);
+                            break;
+                        case "VF2":
+                            th.innerText = "Viertelfinale 2";
+                            trHeader.appendChild(th);
+                            table.appendChild(trHeader);
+                            date.innerText = "Samstag, ab 8:00 Uhr";
+                            table.appendChild(date);
+                            break;
+                        case "HF":
+                            th.innerText = "Halbfinale";
+                            trHeader.appendChild(th);
+                            table.appendChild(trHeader);
+                            date.innerText = "Samstag, ab 16:00 Uhr";
+                            table.appendChild(date);
+                            break;
+                        case "Final":
+                            th.innerText = part + "e";
+                            trHeader.appendChild(th);
+                            table.appendChild(trHeader);
+                            date.innerText = "Samstag, ab 20:00 Uhr";
+                            table.appendChild(date);
+                            break;
+                        default:
+                            break;
+                    }
                     for (let index = 0; index < match.length; index++) {
                         let tr = document.createElement("tr");
                         let tdMatch = document.createElement("td");
