@@ -33,7 +33,7 @@ namespace BillardTurnier {
             { name1: "Ulla", points1: 0, fouls1: 0, name2: "Sigi", points2: 0, fouls2: 0, date: "Mittwoch, 14:00 Uhr" }
         ],
         D: [
-            { name1: "Linda", points1: 0, fouls1: 0, name2: "Alex", points2: 0, fouls2: 0, date: "Dienstag, 16:00 Uhr" },
+            { name1: "Linda", points1: 0, fouls1: 0, name2: "Alex", points2: 0, fouls2: 0, date: "Dienstag, 15:45 Uhr" },
             { name1: "Alex", points1: 0, fouls1: 0, name2: "Valentin", points2: 0, fouls2: 0, date: "Dienstag, 18:00 Uhr" },
             { name1: "Valentin", points1: 0, fouls1: 0, name2: "Linda", points2: 0, fouls2: 0, date: "Dienstag, 20:00 Uhr" }
         ],
