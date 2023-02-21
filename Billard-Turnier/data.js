@@ -20,7 +20,7 @@ var BillardTurnier;
         ],
         D: [
             { name1: "Linda", points1: 1, fouls1: 11, name2: "Alex", points2: 2, fouls2: 5, date: "Dienstag, 15:50 Uhr" },
-            { name1: "Alex", points1: 0, fouls1: 0, name2: "Valentin", points2: 0, fouls2: 0, date: "Dienstag, 18:00 Uhr" },
+            { name1: "Alex", points1: 2, fouls1: 5, name2: "Valentin", points2: 1, fouls2: 6, date: "Dienstag, 18:00 Uhr" },
             { name1: "Valentin", points1: 0, fouls1: 0, name2: "Linda", points2: 0, fouls2: 0, date: "Dienstag, 20:00 Uhr" }
         ],
         VF1: [
@@ -41,8 +41,8 @@ var BillardTurnier;
     };
     BillardTurnier.data = {
         A: [
-            { name: "Max", points: 0, fouls: 0 },
-            { name: "Simon", points: 0, fouls: 0 },
+            { name: "Max", points: 2, fouls: 0 },
+            { name: "Simon", points: 1, fouls: 0 },
             { name: "Justin", points: 0, fouls: 0 }
         ],
         B: [
@@ -57,7 +57,7 @@ var BillardTurnier;
         ],
         D: [
             { name: "Linda", points: 0, fouls: 0 },
-            { name: "Alex", points: 0, fouls: 0 },
+            { name: "Alex", points: 2, fouls: 0 },
             { name: "Valentin", points: 0, fouls: 0 }
         ]
     };
@@ -71,52 +71,50 @@ var BillardTurnier;
                 case "C":
                 case "D":
                     // console.log(part);
-                    let points1 = match[0].points1 + match[2].points2;
+                    // let points1: number;
+                    // // let points2: number;
+                    // // let points3: number;
+                    // for (let index: number = 0; index < 3; index++) {
+                    //     if (match[index].points1 - match[index].points2 > 0) {
+                    //         points1 = 1;
+                    //     } else if (match[index].points1 - match[index].points2 < 0) {
+                    //         points1 = 0;
+                    //         console.log(part + "p2 = " + points1);
+                    //     } else {
+                    //         console.log("leer");
+                    //     }
+                    // }
                     let fouls1 = match[0].fouls1 + match[2].fouls2;
-                    let points2 = match[0].points2 + match[1].points1;
                     let fouls2 = match[0].fouls2 + match[1].fouls1;
-                    let points3 = match[1].points2 + match[2].points1;
                     let fouls3 = match[1].fouls2 + match[2].fouls1;
                     let groups = ["A", "B", "C", "D"];
                     if (groups[index] == "A") {
-                        BillardTurnier.data.A[0].points = points1;
                         BillardTurnier.data.A[0].fouls = fouls1;
-                        BillardTurnier.data.A[1].points = points2;
                         BillardTurnier.data.A[1].fouls = fouls2;
-                        BillardTurnier.data.A[2].points = points3;
                         BillardTurnier.data.A[2].fouls = fouls3;
                         // console.log(data.A[0]);
                         // console.log(data.A[1]);
                         // console.log(data.A[2]);
                     }
                     else if (groups[index] == "B") {
-                        BillardTurnier.data.B[0].points = points1;
                         BillardTurnier.data.B[0].fouls = fouls1;
-                        BillardTurnier.data.B[1].points = points2;
                         BillardTurnier.data.B[1].fouls = fouls2;
-                        BillardTurnier.data.B[2].points = points3;
                         BillardTurnier.data.B[2].fouls = fouls3;
                         // console.log(data.B[0]);
                         // console.log(data.B[1]);
                         // console.log(data.B[2]);
                     }
                     else if (groups[index] == "C") {
-                        BillardTurnier.data.C[0].points = points1;
                         BillardTurnier.data.C[0].fouls = fouls1;
-                        BillardTurnier.data.C[1].points = points2;
                         BillardTurnier.data.C[1].fouls = fouls2;
-                        BillardTurnier.data.C[2].points = points3;
                         BillardTurnier.data.C[2].fouls = fouls3;
                         // console.log(data.C[0]);
                         // console.log(data.C[1]);
                         // console.log(data.C[2]);
                     }
                     else if (groups[index] == "D") {
-                        BillardTurnier.data.D[0].points = points1;
                         BillardTurnier.data.D[0].fouls = fouls1;
-                        BillardTurnier.data.D[1].points = points2;
                         BillardTurnier.data.D[1].fouls = fouls2;
-                        BillardTurnier.data.D[2].points = points3;
                         BillardTurnier.data.D[2].fouls = fouls3;
                         // console.log(data.D[0]);
                         // console.log(data.D[1]);
