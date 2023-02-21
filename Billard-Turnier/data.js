@@ -24,8 +24,8 @@ var BillardTurnier;
             { name1: "Valentin", points1: 0, fouls1: 0, name2: "Linda", points2: 0, fouls2: 0, date: "Dienstag, 20:00 Uhr" }
         ],
         VF1: [
-            { name1: "A1", points1: 0, fouls1: 0, name2: "B2", points2: 0, fouls2: 0, date: "Samstag, 8:00 Uhr" },
-            { name1: "B1", points1: 0, fouls1: 0, name2: "A2", points2: 0, fouls2: 0, date: "Samstag, 10:00 Uhr" }
+            { name1: "Max", points1: 0, fouls1: 0, name2: "B2", points2: 0, fouls2: 0, date: "Samstag, 8:00 Uhr" },
+            { name1: "B1", points1: 0, fouls1: 0, name2: "Simon", points2: 0, fouls2: 0, date: "Samstag, 10:00 Uhr" }
         ],
         VF2: [
             { name1: "C1", points1: 0, fouls1: 0, name2: "D2", points2: 0, fouls2: 0, date: "Samstag, 12:00 Uhr" },
