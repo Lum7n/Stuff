@@ -44,6 +44,7 @@ var BillardTurnier;
         let headline = document.getElementById("headline");
         headline.style.textAlign = "left";
         headline.style.fontSize = "28px";
+        headline.style.margin = "20px 0px 10px 0px";
     }
     function horizontalAdjustments() {
         let selection = document.getElementById("selection");
