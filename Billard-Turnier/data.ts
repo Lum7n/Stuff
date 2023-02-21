@@ -18,7 +18,7 @@ namespace BillardTurnier {
 
     export let matches: Matches = {
         A: [
-            { name1: "Max", points1: 0, fouls1: 0, name2: "Simon", points2: 0, fouls2: 0, date: "Dienstag, 10:00 Uhr" },
+            { name1: "Max", points1: 2, fouls1: 3, name2: "Simon", points2: 0, fouls2: 4, date: "Dienstag, 10:00 Uhr" },
             { name1: "Simon", points1: 0, fouls1: 0, name2: "Justin", points2: 0, fouls2: 0, date: "Dienstag, 12:00 Uhr" },
             { name1: "Justin", points1: 0, fouls1: 0, name2: "Max", points2: 0, fouls2: 0, date: "Dienstag, 14:00 Uhr" }
         ],
