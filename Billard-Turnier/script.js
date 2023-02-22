@@ -258,28 +258,28 @@ var BillardTurnier;
                             th.innerText = "Viertelfinale 1";
                             trHeader.appendChild(th);
                             table.appendChild(trHeader);
-                            date.innerText = "Samstag, ab 12:00 Uhr";
+                            date.innerText = "Samstag, 12:00 Uhr";
                             table.appendChild(date);
                             break;
                         case "VF2":
                             th.innerText = "Viertelfinale 2";
                             trHeader.appendChild(th);
                             table.appendChild(trHeader);
-                            date.innerText = "Samstag, ab 8:00 Uhr";
+                            date.innerText = "Samstag, 13:00 Uhr";
                             table.appendChild(date);
                             break;
                         case "HF":
                             th.innerText = "Halbfinale";
                             trHeader.appendChild(th);
                             table.appendChild(trHeader);
-                            date.innerText = "Samstag, ab 16:00 Uhr";
+                            date.innerText = "Samstag, ab 15:00 Uhr";
                             table.appendChild(date);
                             break;
                         case "Final":
                             th.innerText = part + "e";
                             trHeader.appendChild(th);
                             table.appendChild(trHeader);
-                            date.innerText = "Samstag, ab 20:00 Uhr";
+                            date.innerText = "Samstag, ab 17:00 Uhr";
                             table.appendChild(date);
                             break;
                         default:

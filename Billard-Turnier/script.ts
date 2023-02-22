@@ -382,7 +382,7 @@ namespace BillardTurnier {
                             trHeader.appendChild(th);
                             table.appendChild(trHeader);
 
-                            date.innerText = "Samstag, ab 12:00 Uhr";
+                            date.innerText = "Samstag, 12:00 Uhr";
                             table.appendChild(date);
                             break;
 
@@ -392,7 +392,7 @@ namespace BillardTurnier {
                             trHeader.appendChild(th);
                             table.appendChild(trHeader);
 
-                            date.innerText = "Samstag, ab 8:00 Uhr";
+                            date.innerText = "Samstag, 13:00 Uhr";
                             table.appendChild(date);
 
                             break;
@@ -403,7 +403,7 @@ namespace BillardTurnier {
                             trHeader.appendChild(th);
                             table.appendChild(trHeader);
 
-                            date.innerText = "Samstag, ab 16:00 Uhr";
+                            date.innerText = "Samstag, ab 15:00 Uhr";
                             table.appendChild(date);
 
                             break;
@@ -414,7 +414,7 @@ namespace BillardTurnier {
                             trHeader.appendChild(th);
                             table.appendChild(trHeader);
 
-                            date.innerText = "Samstag, ab 20:00 Uhr";
+                            date.innerText = "Samstag, ab 17:00 Uhr";
                             table.appendChild(date);
 
                             break;
