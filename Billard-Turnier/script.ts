@@ -5,7 +5,6 @@ namespace BillardTurnier {
     let screenType: string;
     let mobileTable: HTMLElement;
 
-
     function handleLoad(): void {
 
         sizeTest();
@@ -14,7 +13,8 @@ namespace BillardTurnier {
         input.addEventListener("change", handleSelection);
 
         summarizePoints();
-
+        transferPartisipantsToFinals();
+        
         buildTree();
         buildGroupTables();
 
@@ -372,6 +372,7 @@ namespace BillardTurnier {
                     tableGroup = <HTMLElement>document.querySelector(".tree" + part);
 
                     //add Content to Table-Elements & them to Div
+                    //the different parts
                     switch (part) {
                         case "VF1":
 
@@ -420,6 +421,7 @@ namespace BillardTurnier {
                             break;
                     }
 
+                    //the same parts
                     for (let index: number = 0; index < match.length; index++) {
 
                         let tr: HTMLTableRowElement = document.createElement("tr");
@@ -459,9 +461,12 @@ namespace BillardTurnier {
         for (let group in data) {
             let participants: Participants[] = data[group];
             // console.log(group);
-            // console.log(participants[0]);
-            // console.log(participants[1]);
-            // console.log(participants[2]);
+            // console.log(participants);
+
+            //sort Participants by Points
+            let groupOfParticipants: Participants[] = sortParticipantsByPoints(participants[0], participants[1], participants[2]);
+
+            // console.log(participants);
 
             //create Table-Elements
             let table: HTMLTableElement = document.createElement("table");
@@ -476,26 +481,24 @@ namespace BillardTurnier {
             trHeader.appendChild(th);
             table.appendChild(trHeader);
 
-            for (let index: number = 0; index < participants.length; index++) {
+            for (let index: number = 0; index < groupOfParticipants.length; index++) {
 
                 let tr: HTMLTableRowElement = document.createElement("tr");
                 let tdName: HTMLTableCellElement = document.createElement("td");
                 let tdPoints: HTMLTableCellElement = document.createElement("td");
                 let tdFouls: HTMLTableCellElement = document.createElement("td");
 
-                tdName.innerText = participants[index].name;
+                tdName.innerText = groupOfParticipants[index].name;
                 tr.appendChild(tdName);
-                tdPoints.innerText = participants[index].points + " P.";
+                tdPoints.innerText = groupOfParticipants[index].points + " P.";
                 tr.appendChild(tdPoints);
-                tdFouls.innerText = participants[index].fouls + " Fouls";
+                tdFouls.innerText = groupOfParticipants[index].fouls + " Fouls";
                 tr.appendChild(tdFouls);
                 table.appendChild(tr);
-
             }
 
             tableGroup.appendChild(table);
         }
-
     }
 
 

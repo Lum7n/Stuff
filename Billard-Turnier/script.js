@@ -9,6 +9,7 @@ var BillardTurnier;
         let input = document.getElementById("selection");
         input.addEventListener("change", handleSelection);
         BillardTurnier.summarizePoints();
+        BillardTurnier.transferPartisipantsToFinals();
         buildTree();
         buildGroupTables();
     }
@@ -250,6 +251,7 @@ var BillardTurnier;
                     //get Div
                     tableGroup = document.querySelector(".tree" + part);
                     //add Content to Table-Elements & them to Div
+                    //the different parts
                     switch (part) {
                         case "VF1":
                             th.innerText = "Viertelfinale 1";
@@ -282,6 +284,7 @@ var BillardTurnier;
                         default:
                             break;
                     }
+                    //the same parts
                     for (let index = 0; index < match.length; index++) {
                         let tr = document.createElement("tr");
                         let tdMatch = document.createElement("td");
@@ -307,9 +310,10 @@ var BillardTurnier;
         for (let group in BillardTurnier.data) {
             let participants = BillardTurnier.data[group];
             // console.log(group);
-            // console.log(participants[0]);
-            // console.log(participants[1]);
-            // console.log(participants[2]);
+            // console.log(participants);
+            //sort Participants by Points
+            let groupOfParticipants = BillardTurnier.sortParticipantsByPoints(participants[0], participants[1], participants[2]);
+            // console.log(participants);
             //create Table-Elements
             let table = document.createElement("table");
             let trHeader = document.createElement("tr");
@@ -320,16 +324,16 @@ var BillardTurnier;
             th.innerText = "Gruppe " + group;
             trHeader.appendChild(th);
             table.appendChild(trHeader);
-            for (let index = 0; index < participants.length; index++) {
+            for (let index = 0; index < groupOfParticipants.length; index++) {
                 let tr = document.createElement("tr");
                 let tdName = document.createElement("td");
                 let tdPoints = document.createElement("td");
                 let tdFouls = document.createElement("td");
-                tdName.innerText = participants[index].name;
+                tdName.innerText = groupOfParticipants[index].name;
                 tr.appendChild(tdName);
-                tdPoints.innerText = participants[index].points + " P.";
+                tdPoints.innerText = groupOfParticipants[index].points + " P.";
                 tr.appendChild(tdPoints);
-                tdFouls.innerText = participants[index].fouls + " Fouls";
+                tdFouls.innerText = groupOfParticipants[index].fouls + " Fouls";
                 tr.appendChild(tdFouls);
                 table.appendChild(tr);
             }

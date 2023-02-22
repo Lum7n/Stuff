@@ -24,13 +24,13 @@ namespace BillardTurnier {
         ],
         B: [
             { name1: "Vincent", points1: 0, fouls1: 0, name2: "Ben", points2: 0, fouls2: 0, date: "Mittwoch, 16:00 Uhr" },
-            { name1: "Ben", points1: 0, fouls1: 0, name2: "Luis", points2: 0, fouls2: 0, date: "Mittwoch, 18:00 Uhr" },
-            { name1: "Luis", points1: 0, fouls1: 0, name2: "Vincent", points2: 0, fouls2: 0, date: "Mittwoch, 20:00 Uhr" }
+            { name1: "Ben", points1: 0, fouls1: 0, name2: "Luis", points2: 0, fouls2: 0, date: "Mittwoch, 17:00 Uhr" },
+            { name1: "Luis", points1: 0, fouls1: 0, name2: "Vincent", points2: 0, fouls2: 0, date: "Mittwoch, 18:00 Uhr" }
         ],
         C: [
-            { name1: "Sigi", points1: 0, fouls1: 0, name2: "Jan", points2: 0, fouls2: 0, date: "Mittwoch, 10:00 Uhr" },
-            { name1: "Jan", points1: 0, fouls1: 0, name2: "Ulla", points2: 0, fouls2: 0, date: "Mittwoch, 12:00 Uhr" },
-            { name1: "Ulla", points1: 0, fouls1: 0, name2: "Sigi", points2: 0, fouls2: 0, date: "Mittwoch, 14:00 Uhr" }
+            { name1: "Sigi", points1: 0, fouls1: 0, name2: "Jan", points2: 0, fouls2: 0, date: "Mittwoch, 12:00 Uhr" },
+            { name1: "Jan", points1: 0, fouls1: 0, name2: "Ulla", points2: 0, fouls2: 0, date: "Mittwoch, 13:00 Uhr" },
+            { name1: "Ulla", points1: 2, fouls1: 5, name2: "Sigi", points2: 1, fouls2: 2, date: "Mittwoch, 14:00 Uhr" }
         ],
         D: [
             { name1: "Linda", points1: 1, fouls1: 11, name2: "Alex", points2: 2, fouls2: 5, date: "Dienstag, 15:50 Uhr" },
@@ -121,11 +121,8 @@ namespace BillardTurnier {
 
                             console.log("leer");
                         }
-
                     }
-
-                    console.log(participants);
-
+                    // console.log(participants);
 
                     let fouls1: number = match[0].fouls1 + match[2].fouls2;
                     let fouls2: number = match[0].fouls2 + match[1].fouls1;
@@ -210,9 +207,55 @@ namespace BillardTurnier {
                 default:
                     break;
             }
-
         }
-
     }
 
+    export function transferPartisipantsToFinals(): void {
+
+        for (let group in data) {
+            let participants: Participants[] = data[group];
+
+            let groupOfParticipants: Participants[] = sortParticipantsByPoints(participants[0], participants[1], participants[2]);
+
+            let groups: string[] = ["A", "B", "C", "D"];
+
+            if (groups[index] == "A") {
+
+                // data.A[0].points = participants[0];
+                // data.A[0].fouls = fouls1;
+            }
+
+        }
+    }
+
+    export function sortParticipantsByPoints(participant1: Participants, participant2: Participants, participant3: Participants): Participants[] {
+
+        if (participant2.points > participant1.points || participant2.points == participant1.points && participant2.fouls < participant1.fouls) {
+            let switchingNumbers: Participants = participant1;
+            participant1 = participant2;
+            participant2 = switchingNumbers;
+
+            console.log(data.A[0]);
+            console.log(participant2);
+        }
+
+        if (participant3.points > participant2.points || participant3.points == participant2.points && participant3.fouls < participant2.fouls) {
+            let switchingNumbers: Participants = participant2;
+            participant2 = participant3;
+            participant3 = switchingNumbers;
+        }
+
+        if (participant2.points > participant1.points || participant2.points == participant1.points && participant2.fouls < participant1.fouls) {
+            let switchingNumbers: Participants = participant1;
+            participant1 = participant2;
+            participant2 = switchingNumbers;
+        }
+
+        // console.log(participant1);
+        // console.log(participant2);
+        // console.log(participant3);
+
+        let groupOfParticipants: Participants[] = [participant1, participant2, participant3];
+        return groupOfParticipants;
+    }
 }
