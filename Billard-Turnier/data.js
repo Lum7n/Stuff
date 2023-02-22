@@ -10,7 +10,7 @@ var BillardTurnier;
         ],
         B: [
             { name1: "Vincent", points1: 2, fouls1: 1, name2: "Ben", points2: 0, fouls2: 4, date: "Mittwoch, 16:00 Uhr" },
-            { name1: "Ben", points1: 0, fouls1: 0, name2: "Luis", points2: 0, fouls2: 0, date: "Mittwoch, 17:00 Uhr" },
+            { name1: "Ben", points1: 0, fouls1: 3, name2: "Luis", points2: 2, fouls2: 2, date: "Mittwoch, 17:00 Uhr" },
             { name1: "Luis", points1: 0, fouls1: 0, name2: "Vincent", points2: 0, fouls2: 0, date: "Mittwoch, 18:00 Uhr" }
         ],
         C: [
