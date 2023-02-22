@@ -29,7 +29,7 @@ namespace BillardTurnier {
         ],
         C: [
             { name1: "Sigi", points1: 2, fouls1: 4, name2: "Jan", points2: 0, fouls2: 3, date: "Mittwoch, 12:00 Uhr" },
-            { name1: "Jan", points1: 0, fouls1: 0, name2: "Ulla", points2: 0, fouls2: 0, date: "Mittwoch, 13:00 Uhr" },
+            { name1: "Jan", points1: 2, fouls1: 6, name2: "Ulla", points2: 1, fouls2: 9, date: "Mittwoch, 13:00 Uhr" },
             { name1: "Ulla", points1: 2, fouls1: 5, name2: "Sigi", points2: 1, fouls2: 3, date: "Mittwoch, 14:00 Uhr" }
         ],
         D: [
@@ -42,8 +42,8 @@ namespace BillardTurnier {
             { name1: "B1", points1: 0, fouls1: 0, name2: "Simon", points2: 0, fouls2: 0, date: "Samstag, 10:00 Uhr" }
         ],
         VF2: [
-            { name1: "C1", points1: 0, fouls1: 0, name2: "Linda", points2: 0, fouls2: 0, date: "Samstag, 12:00 Uhr" },
-            { name1: "Alex", points1: 0, fouls1: 0, name2: "C2", points2: 0, fouls2: 0, date: "Samstag, 14:00 Uhr" }
+            { name1: "Sigi", points1: 0, fouls1: 0, name2: "Linda", points2: 0, fouls2: 0, date: "Samstag, 12:00 Uhr" },
+            { name1: "Alex", points1: 0, fouls1: 0, name2: "Jan", points2: 0, fouls2: 0, date: "Samstag, 14:00 Uhr" }
         ],
         HF: [
             { name1: "VF1", points1: 0, fouls1: 0, name2: "VF3", points2: 0, fouls2: 0, date: "Samstag, 16:00 Uhr" },
