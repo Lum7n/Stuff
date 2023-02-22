@@ -192,11 +192,12 @@ var BillardTurnier;
             let tdName = document.createElement("td");
             let tdPoints = document.createElement("td");
             let tdFouls = document.createElement("td");
-            tdName.innerText = participants[index].name;
+            let groupOfParticipants = BillardTurnier.sortParticipantsByPoints(participants[0], participants[1], participants[2]);
+            tdName.innerText = groupOfParticipants[index].name;
             tr.appendChild(tdName);
-            tdPoints.innerText = participants[index].points + " P.";
+            tdPoints.innerText = groupOfParticipants[index].points + " P.";
             tr.appendChild(tdPoints);
-            tdFouls.innerText = participants[index].fouls + " Fouls";
+            tdFouls.innerText = groupOfParticipants[index].fouls + " Fouls";
             tr.appendChild(tdFouls);
             table.appendChild(tr);
         }

@@ -289,11 +289,13 @@ namespace BillardTurnier {
             let tdPoints: HTMLTableCellElement = document.createElement("td");
             let tdFouls: HTMLTableCellElement = document.createElement("td");
 
-            tdName.innerText = participants[index].name;
+            let groupOfParticipants: Participants[] = sortParticipantsByPoints(participants[0], participants[1], participants[2]);
+
+            tdName.innerText = groupOfParticipants[index].name;
             tr.appendChild(tdName);
-            tdPoints.innerText = participants[index].points + " P.";
+            tdPoints.innerText = groupOfParticipants[index].points + " P.";
             tr.appendChild(tdPoints);
-            tdFouls.innerText = participants[index].fouls + " Fouls";
+            tdFouls.innerText = groupOfParticipants[index].fouls + " Fouls";
             tr.appendChild(tdFouls);
             table.appendChild(tr);
 
