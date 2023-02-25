@@ -25,7 +25,7 @@ var BillardTurnier;
         ],
         VF1: [
             { name1: "Max", points1: 2, fouls1: 1, name2: "Vincent", points2: 0, fouls2: 5, date: "Samstag, 12:00 Uhr" },
-            { name1: "Luis", points1: 0, fouls1: 0, name2: "Simon", points2: 0, fouls2: 0, date: "Samstag, 12:30 Uhr" }
+            { name1: "Luis", points1: 2, fouls1: 2, name2: "Simon", points2: 0, fouls2: 1, date: "Samstag, 12:30 Uhr" }
         ],
         VF2: [
             { name1: "Sigi", points1: 0, fouls1: 0, name2: "Linda", points2: 0, fouls2: 0, date: "Samstag, 13:00 Uhr" },
@@ -33,7 +33,7 @@ var BillardTurnier;
         ],
         HF: [
             { name1: "Max", points1: 0, fouls1: 0, name2: "VF3", points2: 0, fouls2: 0, date: "Samstag, 15:00 Uhr" },
-            { name1: "VF2", points1: 0, fouls1: 0, name2: "VF4", points2: 0, fouls2: 0, date: "Samstag, 16:00 Uhr" }
+            { name1: "Luis", points1: 0, fouls1: 0, name2: "VF4", points2: 0, fouls2: 0, date: "Samstag, 16:00 Uhr" }
         ],
         Final: [
             { name1: "HF1", points1: 0, fouls1: 0, name2: "HF2", points2: 0, fouls2: 0, date: "Samstag, 17:00 Uhr" }
