@@ -33,10 +33,10 @@ var BillardTurnier;
         ],
         HF: [
             { name1: "Max", points1: 0, fouls1: 1, name2: "Sigi", points2: 2, fouls2: 3, date: "Samstag, 15:00 Uhr" },
-            { name1: "Luis", points1: 0, fouls1: 0, name2: "Alex", points2: 0, fouls2: 0, date: "Samstag, 16:00 Uhr" }
+            { name1: "Luis", points1: 2, fouls1: 2, name2: "Alex", points2: 1, fouls2: 3, date: "Samstag, 16:00 Uhr" }
         ],
         Final: [
-            { name1: "Sigi", points1: 0, fouls1: 0, name2: "HF2", points2: 0, fouls2: 0, date: "Samstag, 17:00 Uhr" }
+            { name1: "Sigi", points1: 2, fouls1: 5, name2: "Luis", points2: 3, fouls2: 1, date: "Samstag, 17:00 Uhr" }
         ]
     };
     BillardTurnier.data = {
