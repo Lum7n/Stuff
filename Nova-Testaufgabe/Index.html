@@ -16,21 +16,120 @@
         <div class="header-menu-top ">
             <div class="container mx-auto">
                 <div class="d-flex flex-column flex-md-row py-3 nav-top">
-                    <div class="order-1 order-md-1">
+                    <div class="logoDiv order-1 order-md-1">
                         <img src="assets/Logo.png" alt="Logo mit dem Text 'Logoips'">
                     </div>
                     <div class="order-2 order-md-2 ms-md-auto">
                         <ul class="nav">
-                            <li class="nav-item">
+                            <li class="nav-item" data-bs-toggle="collapse" data-bs-target="#megamenu-blog">
                                 <a class="nav-link" href="#">Blog</a>
                             </li>
-                            <li class="nav-item">
+                            <li class="nav-item" data-bs-toggle="collapse" data-bs-target="#megamenu-product">
                                 <a class="nav-link" href="#">Products</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="#">About</a>
                             </li>
                         </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div id="megamenu-blog" class="collapse">
+                    <div class="row article">
+                        <div class="col col-12 col-md-4 col-lg-4 articleText">
+                            <div>
+                                <img src="assets/Article_city.png" alt="Stadt, Skyline" class="mx-auto d-block img-fluid">
+                                <p class="megamenu-blogArticle">ARTICLE</p>
+                                <h2>City</h2>
+                                <p>
+                                    Orci sit nibh diam tellus. Ac turpis morbi amet nec mauris posuere dui. Id gravida
+                                    mattis sed justo magna. Semper ac ipsum eget lorem duis at ac gravida amet.
+                                </p>
+                            </div>
+                            <button type="button" class="btn">
+                                <i class="fa-solid fa-arrow-right"></i> Read more
+                            </button>
+                        </div>
+                        <div class="col col-12 col-md-4 col-lg-4 articleText">
+                            <div>
+                                <img src="assets/Article_forest.png" alt="Wald, Bäume" class="mx-auto d-block img-fluid">
+                                <p class="megamenu-blogArticle">ARTICLE</p>
+                                <h2>Forest</h2>
+                                <p>
+                                    Et fusce placerat ipsum dignissim ullamcorper. Sed ullamcorper felis egestas augue.
+                                    Nibh egestas massa nulla lectus. Adipiscing accumsan semper.
+                                </p>
+                            </div>
+                            <button type="button" class="btn">
+                                <i class="fa-solid fa-arrow-right"></i> Read more
+                            </button>
+                        </div>
+                        <div class="col col-12 col-md-4 col-lg-4 articleText">
+                            <div>
+                                <img src="assets/Article_water.png" alt="Wasser, Wellen" class="mx-auto d-block img-fluid">
+                                <p class="megamenu-blogArticle">ARTICLE</p>
+                                <h2>Water</h2>
+                                <p>
+                                    Morbi neque enim enim faucibus ac vestibulum nisl eu. Purus augue convallis tempus
+                                    odio auctor purus.
+                                </p>
+                            </div>
+                            <button type="button" class="btn">
+                                <i class="fa-solid fa-arrow-right"></i> Read more
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div id="megamenu-product" class="collapse">
+                    <div class="row article">
+                        <div class="col col-12 col-md-4 col-lg-4 productList">
+                            <div class="productButtons">
+                                <h2>Products</h2>
+                                <button type="button" class="btn">Product-A</button>
+                                <button type="button" class="btn">Product-B</button>
+                                <button type="button" class="btn">Product-C</button>
+                                <button type="button" class="btn">Product-D</button>
+                                <button type="button" class="btn">Product-E</button>
+                                <button type="button" class="btn">Product-F</button>
+                                <button type="button" class="btn">Product-G</button>
+                            </div>
+                            <p class="toProducts">
+                                <i class="fa-solid fa-arrow-right"></i> Show all
+                            </p>
+                        </div>
+                        <div class="col col-12 col-md-4 col-lg-4 articleText">
+                            <div class="pA">
+                                <img src="assets/Product.png" alt="Weiße Dose" class="mx-auto d-block img-fluid">
+                            </div>
+                            <div>
+                                <p class="megamenu-productProduct">PRODUCTS</p>
+                                <h2>Product A</h2>
+                                <p>
+                                    At proin ipsum massa turpis viverra mi tristique nisi at. Sapien sed leo sit
+                                    faucibus mattis augue morbi leo.
+                                </p>
+                            </div>
+                            <button type="button" class="btn">
+                                <i class="fa-solid fa-arrow-right"></i> Read more
+                            </button>
+                        </div>
+                        <div class="col col-12 col-md-4 col-lg-4 articleText">
+                            <div class="pB">
+                                <img src="assets/Product.png" alt="Weiße Dose" class="mx-auto d-block img-fluid">
+                            </div>
+                            <div>
+                                <p class="megamenu-productProduct">PRODUCTS</p>
+                                <h2>Product B</h2>
+                                <p>
+                                    Ante sit congue arcu morbi. Id diam id erat ultrices cursus eu at in mi. Euismod at
+                                    a nibh sed duis ac.
+                                </p>
+                            </div>
+                            <button type="button" class="btn">
+                                <i class="fa-solid fa-arrow-right"></i> Read more
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -43,14 +142,12 @@
                 class="mx-auto d-block img-fluid">
             <div class="front-text position-absolute w-100 top-0 d-flex align-items-start">
                 <div class="container">
-                    <div class="col-12 position-relative">
+                    <div class="col-12 position-relative imgText">
                         <h1 class="mb-0">The start of a great adventure.</h1>
                         <p class="front-subtext">
                             Porta dui sed mattis odio cras integer sapien proin diam.Malesuada purus bibendum nulla
-                            libero ut
-                            etiam ut. Amet odio felis gravida porta accumsan arcu. Libero neque mi vestibulum habitant
-                            neque
-                            sagittis venenatis.
+                            libero ut etiam ut. Amet odio felis gravida porta accumsan arcu. Libero neque mi vestibulum
+                            habitant neque sagittis venenatis.
                         </p>
                         <button type="button" class="btn">Read more</button>
                     </div>
@@ -62,13 +159,12 @@
             <div class="row">
                 <div class="col col-12 col-md-4 col-lg-4">
                     <div class=" product pG">
-                        <img src="assets/Product.png" alt="" class="mx-auto d-block img-fluid">
+                        <img src="assets/Product.png" alt="Weiße Dose" class="mx-auto d-block img-fluid">
                         <div class="productText">
                             <h3>Product G</h3>
                             <p>
                                 A diam dolor gravida eu et nibh morbi at nullam. Enim urna quis vitae arcu donec purus.
-                                Faucibus
-                                iaculis at duis pulvinar eget. Ipsum ut cras magna.
+                                Faucibus iaculis at duis pulvinar eget. Ipsum ut cras magna.
                             </p>
                             <span class="fa-stack">
                                 <i class="fas fa-circle fa-stack-2x"></i>
@@ -79,7 +175,7 @@
                 </div>
                 <div class="col col-12 col-md-4 col-lg-4">
                     <div class=" product pF">
-                        <img src="assets/Product.png" alt="" class="mx-auto d-block img-fluid">
+                        <img src="assets/Product.png" alt="Weiße Dose" class="mx-auto d-block img-fluid">
                         <div class="productText">
                             <h3>Product F</h3>
                             <p>
@@ -95,13 +191,12 @@
                 </div>
                 <div class="col col-12 col-md-4 col-lg-4">
                     <div class=" product pA">
-                        <img src="assets/Product.png" alt="" class="mx-auto d-block img-fluid">
+                        <img src="assets/Product.png" alt="Weiße Dose" class="mx-auto d-block img-fluid">
                         <div class="productText">
                             <h3>Product A</h3>
                             <p>
                                 Tellus tellus nibh duis scelerisque nibh consequat. Volutpat consectetur maecenas
-                                volutpat
-                                odio. Vulputate nisl morbi et scelerisque cras. Non et.
+                                volutpat odio. Vulputate nisl morbi et scelerisque cras. Non et.
                             </p>
                             <span class="fa-stack">
                                 <i class="fas fa-circle fa-stack-2x"></i>
@@ -113,10 +208,79 @@
             </div>
             <p class="toProducts">Show all</p>
         </div>
-        <div class="main-block-blog container">
-            <h1>My First Bootstrap Page</h1>
-            <p>This part is inside a .container class.</p>
-            <p>The .container class provides a responsive fixed width container.</p>
+        <div class="main-block-blog container pt-5 pb-4 mx-auto">
+            <h2>Blog</h2>
+            <p>
+                Diam enim suscipit habitant ac nunc arcu commodo pulvinar massa.<br>Odio pellentesque fusce elit
+                facilisi risus blandit dictum turpis erat. A vestibulum sed scelerisque quis in.
+            </p>
+            <div class="imgFilter">
+                <button type="button" class="btn">Show all</button>
+                <button type="button" class="btn">City</button>
+                <button type="button" class="btn">Forest</button>
+                <button type="button" class="btn">Water</button>
+            </div>
+            <span class="scrollContainerArrow fa-stack">
+                <i class="fas fa-circle fa-stack-2x"></i>
+                <i class="fa-solid fa-arrow-right fa-stack-1x"></i>
+            </span>
+            <div class="imgScrollContainer">
+                <img src="assets/forest_1.png" alt="" width="270" height="350">
+                <img src="assets/forest_2.png" alt="" width="270" height="350">
+                <img src="assets/forest_3.png" alt="" width="270" height="350">
+                <img src="assets/forest_4.png" alt="" width="270" height="350">
+                <img src="assets/city_1.png" alt="" width="270" height="350">
+                <img src="assets/water_1.png" alt="" width="270" height="350">
+                <img src="assets/forest_5.png" alt="" width="270" height="350">
+            </div>
+            <div class="row article">
+                <div class="col col-12 col-md-4 col-lg-4 articleText">
+                    <div>
+                        <h3 class="display-6">Enim nulla facilisis viverra lobortis</h3>
+                        <p>
+                            Lectus orci lectus in leo vel a. Venenatis sagittis nunc fermentum urna morbi. Sed luctus mi
+                            vulputate posuere quis. Amet dolor rhoncus tincidunt porta faucibus lorem in integer et.
+                        </p>
+                    </div>
+                    <button type="button" class="btn">Read more</button>
+                </div>
+                <div class="col col-12 col-md-8 col-lg-8">
+                    <img src="assets/Water.png" alt="Wasser, Wellen" class="mx-auto d-block img-fluid">
+                </div>
+            </div>
+            <div class="row highlightsRow">
+                <div class="col col-12 col-md-4 col-lg-4 highlightDiv">
+                    <div class="highlight">
+                        <i class="fa-solid fa-feather"></i>
+                        <h4>Highlight A</h4>
+                        <p>
+                            Eros elit duis arcu et risus lorem quis rutrum libero. At et diam orci sed leo vestibulum.
+                        </p>
+                    </div>
+                </div>
+                <div class="col col-12 col-md-4 col-lg-4 highlightDiv">
+                    <div class="highlight">
+                        <i class="fa-solid fa-earth-americas"></i>
+                        <h4>Highlight B</h4>
+                        <p>
+                            Felis nunc rutrum ullamcorper cursus felis risus est sapien faucibus. Gravida aliquam.
+                        </p>
+                    </div>
+                </div>
+                <div class="col col-12 col-md-4 col-lg-4 highlightDiv">
+                    <div class="highlight">
+                        <i class="fa-solid fa-microscope"></i>
+                        <h4>Highlight C</h4>
+                        <p>
+                            Pulvinar diam pellentesque facilisi elementum pellentesque. Commodo leo fermentum leo.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <span class="fa-stack">
+                <i class="fas fa-circle fa-stack-2x"></i>
+                <i class="fa-solid fa-chevron-up fa-stack-1x"></i>
+            </span>
         </div>
     </main>
     <footer>

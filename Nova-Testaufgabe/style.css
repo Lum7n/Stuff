@@ -13,11 +13,29 @@ h3 {
     font-weight: 500;
 }
 
+h4 {
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+button.btn {
+    font-weight: 500;
+    font-size: 1.1rem;
+    border: none;
+    border-radius: 1.5rem;
+    padding: 0.7rem 1.3rem 0.9rem 1.3rem;
+    margin-bottom: 1rem;
+}
+
+.btn:hover {
+    background-color: #FBB900;
+}
+
 .container {
     --bs-gutter-x: 3.5rem;
 }
 
-.header-menu-top img {
+.header-menu-top .logoDiv img {
     height: 40px;
 }
 
@@ -25,6 +43,66 @@ h3 {
     font-weight: 500;
     display: flex;
     align-items: center;
+}
+
+#megamenu-blog img,
+#megamenu-product img {
+    border-radius: 0.8rem;
+    margin-bottom: 1rem;
+}
+
+#megamenu-blog .megamenu-blogArticle,
+#megamenu-product .megamenu-productProcuct {
+    color: #c6c6c6;
+    font-size: 0.7rem;
+    margin-bottom: 0.5rem;
+}
+
+.header-menu-top #megamenu-blog button,
+.header-menu-top #megamenu-product button {
+    color: #4B4B4B;
+    background-color: #F2F2F2;
+    width: fit-content;
+}
+
+#megamenu-blog .articleText {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+#megamenu-product .productList {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+#megamenu-product .pA {
+    background-color: #FBB900;
+    border-radius: 0.8rem;
+    margin-bottom: 1.5rem;
+}
+
+#megamenu-product .pB {
+    background-color: #009E3C;
+    border-radius: 0.8rem;
+    margin-bottom: 1.5rem;
+}
+
+#megamenu-product .productButtons h2 {
+    padding-bottom: 1rem;
+}
+
+#megamenu-product .productButtons button.btn {
+    font-size: 0.9rem;
+    border-radius: 1.3rem;
+    padding: 0.6rem 1.2rem 0.8rem 1.2rem;
+}
+
+#megamenu-product .toProducts {
+    font-weight: 500;
+    text-decoration: underline;
+    padding-bottom: 1rem;
 }
 
 .header-menu-top hr {
@@ -41,25 +119,29 @@ h3 {
     text-align: center;
 }
 
+.main-block-front .imgText {
+    padding: 0 10rem;
+}
+
+.main-block-front .front-text h1 {
+    font-size: 4.5rem;
+    font-weight: 700;
+}
+
 .main-block-front .front-subtext {
-    font-weight: 500;
+    font-size: 1.6rem;
+    font-weight: 600;
+    padding: 1rem 2rem;
 }
 
 .main-block-front button {
     color: #4B4B4B;
     background-color: #ffffff;
-    font-weight: 500;
-    border: none;
-    border-radius: 1rem;
-    padding-bottom: 8px;
-    margin-bottom: 1rem;
 }
 
 .main-block-products .row {
     color: #ffffff;
-    --bs-gutter-x: 0rem;
     padding-top: 0.6rem;
-    /* gap: 10px 10px; */
 }
 
 .main-block-products .product {
@@ -78,20 +160,16 @@ h3 {
 
 .main-block-products .pG {
     background-color: #004587;
-    margin-right: 0.68rem;
     margin-bottom: 1.5rem;
 }
 
 .main-block-products .pF {
     background-color: #009CC4;
-    margin-left: 0.34rem;
-    margin-right: 0.34rem;
     margin-bottom: 1.5rem;
 }
 
 .main-block-products .pA {
     background-color: #FBB900;
-    margin-left: 0.68rem;
     margin-bottom: 1.5rem;
 }
 
@@ -114,11 +192,134 @@ h3 {
     text-align: right;
 }
 
-.main-block-blog {}
+.main-block-blog {
+    text-align: center;
+}
+
+.main-block-blog .highlightsRow,
+.main-block-blog .article {
+    padding: 1rem 0rem;
+}
+
+.main-block-blog .imgFilter {
+    text-align: left;
+}
+
+.main-block-blog .imgFilter button {
+    color: #4B4B4B;
+    background-color: #F2F2F2;
+    margin-top: 1.5rem;
+}
+
+.main-block-blog .imgFilter button:active {
+    border: 1px solid #4B4B4B;
+    background-color: #F2F2F2;
+}
+
+.main-block-blog .scrollContainerArrow.fa-stack {
+    position: absolute;
+    margin-top: 10rem;
+    margin-left: 30rem;
+}
+
+.main-block-blog .scrollContainerArrow .fa-circle {
+    color: #4B4B4B;
+}
+
+.main-block-blog .scrollContainerArrow .fa-arrow-right {
+    color: #ffffff;
+}
+
+.main-block-blog .imgScrollContainer {
+    padding: 1rem 0;
+    overflow: scroll;
+    white-space: nowrap;
+}
+
+.main-block-blog .imgScrollContainer img {
+    margin-right: 1rem;
+    border-radius: 1.3rem;
+}
+
+.main-block-blog .article {
+    --bs-gutter-x: 0rem;
+}
+
+.main-block-blog .articleText {
+    color: #ffffff;
+    background-color: #009CC4;
+    border-radius: 0.8rem 0.8rem 0 0;
+    padding: 1.8rem 1rem 1.5rem 1.8rem;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.main-block-blog .articleText p,
+.main-block-blog .highlight p {
+    font-size: 1.1rem;
+    font-weight: 300;
+}
+
+.main-block-blog img {
+    min-height: 339.22px;
+    border-radius: 0 0 0.8rem 0.8rem;
+}
+
+.main-block-blog .articleText button {
+    color: #4B4B4B;
+    background-color: #ffffff;
+    margin-top: 2rem;
+    width: fit-content;
+}
+
+.main-block-blog .articleText button.btn:hover {
+    color: #ffffff;
+    background-color: #004587;
+}
+
+.main-block-blog .highlightDiv {
+    display: flex;
+}
+
+.main-block-blog .highlight {
+    background-color: #F2F2F2;
+    flex: 1;
+    padding: 1.5rem 1rem;
+    border-radius: 0.8rem;
+}
+
+.main-block-blog .highlight i {
+    padding-bottom: 1rem;
+}
+
+.main-block-blog span.fa-stack {
+    margin-top: 4rem;
+    margin-bottom: 1rem;
+    font-size: 1.4rem;
+}
+
+.main-block-blog .fa-circle {
+    color: #F2F2F2;
+}
+
+.main-block-blog .fa-chevron {
+    color: #4B4B4B;
+}
+
+@media (min-width: 768px) {
+    .main-block-blog .articleText {
+        border-radius: 0.8rem 0 0 0.8rem;
+    }
+
+    .main-block-blog img {
+        border-radius: 0 0.8rem 0.8rem 0;
+    }
+}
 
 footer {
     background-color: #F2F2F2;
-
 }
 
 .footer-contact li {
@@ -132,11 +333,6 @@ footer {
 .footer-contact button {
     color: #ffffff;
     background-color: #4B4B4B;
-    font-weight: 500;
-    border: none;
-    border-radius: 1rem;
-    padding-bottom: 8px;
-    margin-bottom: 1rem;
 }
 
 .footer-contact .row-space {
