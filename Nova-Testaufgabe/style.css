@@ -1,9 +1,3 @@
-/* 
-0px - 767px = max 2 columns = col-6 / col-12
-768px - 1399px = max 12 columns = col-md-1 / -12
-1400px - x = max 12 columns = col-xxl-1 / -12
- */
-
 body {
     font-family: "Inter", sans-serif;
     --bs-body-font-family: "Inter", sans-serif;
@@ -93,10 +87,6 @@ grey-700:   #707070
 grey-500:   #C8C8C8
 grey-70:    #F2F2F2
 white:      #FFFFFF
-
-main-green: #00915A
-m-g-light:  #B0CB52
-main-blue:  #0096D2
 */
 
 .productA {
