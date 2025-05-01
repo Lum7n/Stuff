@@ -216,6 +216,7 @@ namespace BillardTurnier {
             let participants: Participants[] = data[group];
 
             let groupOfParticipants: Participants[] = sortParticipantsByPoints(participants[0], participants[1], participants[2]);
+            console.log(groupOfParticipants);
 
             let groups: string[] = ["A", "B", "C", "D"];
 

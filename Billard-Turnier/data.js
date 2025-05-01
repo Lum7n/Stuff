@@ -153,6 +153,7 @@ var BillardTurnier;
         for (let group in BillardTurnier.data) {
             let participants = BillardTurnier.data[group];
             let groupOfParticipants = sortParticipantsByPoints(participants[0], participants[1], participants[2]);
+            console.log(groupOfParticipants);
             let groups = ["A", "B", "C", "D"];
             if (groups[index] == "A") {
                 // data.A[0].points = participants[0];
