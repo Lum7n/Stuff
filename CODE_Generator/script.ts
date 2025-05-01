@@ -10,7 +10,7 @@ namespace CodeGenerator {
 
     let div: HTMLDivElement;
 
-    async function handleLoad(): <Promise>void {
+    async function handleLoad(): Promise<void> {
 
         let codeDIVs: HTMLCollectionOf<HTMLDivElement> = <HTMLCollectionOf<HTMLDivElement>>document.getElementsByClassName("code");
 
@@ -18,19 +18,17 @@ namespace CodeGenerator {
             //console.log(div);
             codePlayer = createUniqueCodes();
             div.innerHTML += codePlayer;
-            await moveFirstCodeWithDelay(div);
+            await new Promise(resolve => setTimeout(resolve, 2000));
+            hideCode(div);
         }
     }
 
     function hideCode(currentPlayerDiv: HTMLDivElement): void {
         console.log(currentPlayerDiv);
-        currentPlayerDiv.style.color = "white";
-        console.log("hö");
-    }
-    
-    async function moveFirstCodeWithDelay(div: HTMLDivElement): Promise<void> {
-        await new Promise(resolve => setTimeout(resolve, 2000));
-        hideCode(div);
+        //currentPlayerDiv.style.color = "white";
+        let text: string = currentPlayerDiv.innerText;
+        currentPlayerDiv.innerText = text.slice(0, 10) + "****";
+        console.log("Code verschlüsselt !");
     }
 
     function createUniqueCodes(): string {

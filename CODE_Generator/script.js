@@ -13,17 +13,16 @@ var CodeGenerator;
             //console.log(div);
             codePlayer = createUniqueCodes();
             div.innerHTML += codePlayer;
-            await moveFirstCodeWithDelay(div);
+            await new Promise(resolve => setTimeout(resolve, 2000));
+            hideCode(div);
         }
     }
     function hideCode(currentPlayerDiv) {
         console.log(currentPlayerDiv);
-        currentPlayerDiv.style.color = "white";
-        console.log("hö");
-    }
-    async function moveFirstCodeWithDelay(div) {
-        await new Promise(resolve => setTimeout(resolve, 2000));
-        hideCode(div);
+        //currentPlayerDiv.style.color = "white";
+        let text = currentPlayerDiv.innerText;
+        currentPlayerDiv.innerText = text.slice(0, 10) + "****";
+        console.log("Code verschlüsselt !");
     }
     function createUniqueCodes() {
         if (dupes == false) {
