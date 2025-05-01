@@ -6,13 +6,24 @@ var CodeGenerator;
     let codeArray = [];
     let index = 0;
     let dupes = false;
-    function handleLoad() {
+    let div;
+    async function handleLoad() {
         let codeDIVs = document.getElementsByClassName("code");
-        for (let div of codeDIVs) {
+        for (div of codeDIVs) {
             //console.log(div);
             codePlayer = createUniqueCodes();
-            div.innerHTML = "" + codePlayer;
+            div.innerHTML += codePlayer;
+            await moveFirstCodeWithDelay(div);
         }
+    }
+    function hideCode(currentPlayerDiv) {
+        console.log(currentPlayerDiv);
+        currentPlayerDiv.style.color = "white";
+        console.log("hö");
+    }
+    async function moveFirstCodeWithDelay(div) {
+        await new Promise(resolve => setTimeout(resolve, 2000));
+        hideCode(div);
     }
     function createUniqueCodes() {
         if (dupes == false) {

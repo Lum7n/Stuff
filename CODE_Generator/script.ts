@@ -8,17 +8,29 @@ namespace CodeGenerator {
 
     let dupes: boolean = false;
 
-    function handleLoad(): void {
+    let div: HTMLDivElement;
+
+    async function handleLoad(): <Promise>void {
 
         let codeDIVs: HTMLCollectionOf<HTMLDivElement> = <HTMLCollectionOf<HTMLDivElement>>document.getElementsByClassName("code");
 
-        for (let div of codeDIVs) {
+        for (div of codeDIVs) {
             //console.log(div);
             codePlayer = createUniqueCodes();
-            div.innerHTML = "" + codePlayer;
-
+            div.innerHTML += codePlayer;
+            await moveFirstCodeWithDelay(div);
         }
+    }
 
+    function hideCode(currentPlayerDiv: HTMLDivElement): void {
+        console.log(currentPlayerDiv);
+        currentPlayerDiv.style.color = "white";
+        console.log("hö");
+    }
+    
+    async function moveFirstCodeWithDelay(div: HTMLDivElement): Promise<void> {
+        await new Promise(resolve => setTimeout(resolve, 2000));
+        hideCode(div);
     }
 
     function createUniqueCodes(): string {
