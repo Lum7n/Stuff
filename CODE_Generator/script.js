@@ -5,10 +5,9 @@ var CodeGenerator;
     let optionsDIV;
     let form;
     let startButton;
+    let playerAmount;
     let codePlayer = "";
     let codeArray = [];
-    let index = 0;
-    let dupes = false;
     let div;
     function handleLoad() {
         optionsDIV = document.querySelector(".options");
@@ -16,10 +15,32 @@ var CodeGenerator;
         optionsDIV.addEventListener("change", displayOptions);
         optionsDIV.addEventListener("input", displayOptions);
         startButton = document.getElementById("startButton");
-        startButton.addEventListener("click", newFunction);
-        getPlayerDIVs();
+        startButton.addEventListener("click", applyOptions);
     }
-    function newFunction() {
+    function displayOptions(_event) {
+        //console.log(_event);
+        let target = _event.target;
+        let quantitySetting = document.getElementById("quantitySetting");
+        if (target.name == "quantity") {
+            quantitySetting.innerText = target.value;
+        }
+        else if (target.name == "mode") {
+            switch (target.value) {
+                case "einfach":
+                    console.log(target.value);
+                    break;
+                case "mittel":
+                    console.log(target.value);
+                    break;
+                case "schwer":
+                    console.log(target.value);
+                    break;
+                default:
+                    break;
+            }
+        }
+    }
+    function applyOptions() {
         let formData = new FormData(form);
         for (let entry of formData) {
             let selector = "[name='" + entry[0] + "']";
@@ -27,7 +48,8 @@ var CodeGenerator;
             if (item != null) {
                 switch (entry[0]) {
                     case "quantity":
-                        //console.log(item.value);
+                        playerAmount = parseFloat(item.value);
+                        generatePlayerDIVs(playerAmount);
                         break;
                     case "mode":
                         //console.log(item.value);
@@ -49,99 +71,77 @@ var CodeGenerator;
                 }
             }
         }
+        optionsDIV.style.display = "none";
+        startButton.style.display = "none";
     }
-    function displayOptions(_event) {
-        console.log(_event);
-        let target = _event.target;
-        let quantitySetting = document.getElementById("quantitySetting");
-        if (target.name == "quantity") {
-            console.log(target.value);
-            quantitySetting.innerText = target.value;
+    async function generatePlayerDIVs(playerAmount) {
+        let mainDIV = document.querySelector(".mainDIV");
+        console.log(mainDIV);
+        codeArray = generateCodeArray();
+        console.log(codeArray);
+        shuffleArray(codeArray);
+        for (let index = 1; index <= playerAmount; index++) {
+            let newDIV = document.createElement("Div");
+            newDIV.classList.add("code");
+            codePlayer = codeArray.splice(0, 1).toString();
+            newDIV.innerText = "Player " + index + ": " + codePlayer;
+            mainDIV.appendChild(newDIV);
+            let newbutton = document.createElement("Button");
+            newbutton.classList.add("next");
+            newbutton.innerText = "next Player";
+            mainDIV.appendChild(newbutton);
+            newbutton.addEventListener("click", next);
+            await new Promise(resolve => setTimeout(resolve, 2000));
         }
-        else if (target.name == "mode") {
-            switch (target.value) {
-                case "einfach":
-                    console.log(target.value);
-                    break;
-                case "mittel":
-                    console.log(target.value);
-                    break;
-                case "schwer":
-                    console.log(target.value);
-                    break;
-                default:
-                    break;
+    }
+    // das timeout durch einen button für den nächsten Spieler ersetzen, beim letzten Button um codes anzuzeigen für Endkontrolle
+    // function hier mit den funktionalitäten der funktion von ChatGPT vervollständigen
+    // außerdem bei jedem Spieler einen "re-roll" Button hinzufügen, falls er den Restart gelegt bekommen hat
+    function next() {
+    }
+    function generateDivsStepByStep() {
+        const container = document.getElementById("container");
+        const totalDivs = 5;
+        let currentIndex = 0;
+        function createNextDiv() {
+            if (currentIndex >= totalDivs || !container)
+                return;
+            const div = document.createElement("div");
+            div.textContent = `Div Nummer ${currentIndex + 1}`;
+            const button = document.createElement("button");
+            button.textContent = "Weiter";
+            button.addEventListener("click", () => {
+                createNextDiv(); // Erstelle das nächste Div
+            });
+            div.appendChild(button);
+            container.appendChild(div);
+            currentIndex++;
+        }
+        // Starte mit dem ersten Div
+        createNextDiv();
+    }
+    function generateCodeArray() {
+        const digits = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
+        const result = [];
+        function combine(start, path) {
+            if (path.length === 4) {
+                result.push(path.join(""));
+                return;
+            }
+            for (let i = start; i < digits.length; i++) {
+                path.push(digits[i]);
+                combine(i + 1, path);
+                path.pop();
             }
         }
-    }
-    async function getPlayerDIVs() {
-        // rename to createPlayerDIVs oder extra funktion eins früher
-        // create Funktion mit der im range Input eingegebenen Zahl erstellen
-        let codeDIVs = document.getElementsByClassName("code");
-        for (div of codeDIVs) {
-            //console.log(div);
-            codePlayer = createUniqueCodes();
-            div.innerHTML += codePlayer;
-            await new Promise(resolve => setTimeout(resolve, 2000));
-            // das timeout durch einen button für den nächsten Spieler ersetzen, beim letzten Button um codes anzuzeigen für Endkontrolle
-            // außerdem bei jedem Spieler einen "re-roll" Button hinzufügen, falls er den Restart gelegt bekommen hat
-            hideCode(div);
-        }
-    }
-    function hideCode(currentPlayerDiv) {
-        console.log(currentPlayerDiv);
-        //currentPlayerDiv.style.color = "white";
-        let text = currentPlayerDiv.innerText;
-        currentPlayerDiv.innerText = text.slice(0, 10) + "****";
-        console.log("Code verschlüsselt !");
-    }
-    function createUniqueCodes() {
-        if (dupes == false) {
-            generateCode();
-            compareCodesOfcodeArray(codeArray);
-        }
-        while (dupes == true) {
-            codeArray.pop();
-            generateCode();
-            compareCodesOfcodeArray(codeArray);
-        }
-        console.log(codeArray);
-        index++;
-        return codePlayer;
-    }
-    function generateCode() {
-        const numberArray = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
-        shuffleArray(numberArray);
-        codeArray[index] = numberArray[0] + numberArray[1] + numberArray[2] + numberArray[3];
-        codePlayer = codeArray[index];
+        combine(0, []);
+        return result;
     }
     function shuffleArray(array) {
         for (let i = array.length - 1; i >= 1; i--) {
             const j = Math.floor(Math.random() * (i + 1));
             [array[i], array[j]] = [array[j], array[i]];
         }
-    }
-    function compareCodesOfcodeArray(strings) {
-        const extractNumbers = (input) => {
-            const matches = input.match(/\b\d{4}\b/g) || [];
-            return new Set(matches.map(num => [...num].sort().join("")));
-        };
-        const seen = new Set();
-        for (const str of strings) {
-            const normalizedSet = extractNumbers(str);
-            for (const num of normalizedSet) {
-                if (seen.has(num)) {
-                    console.log("Übereinstimmenden Nummern gefunden: " + num);
-                    dupes = true;
-                }
-                else {
-                    dupes = false;
-                }
-                seen.add(num);
-            }
-        }
-        console.log(dupes);
-        return dupes;
     }
 })(CodeGenerator || (CodeGenerator = {}));
 //# sourceMappingURL=script.js.map
