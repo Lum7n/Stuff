@@ -2,12 +2,79 @@
 var CodeGenerator;
 (function (CodeGenerator) {
     window.addEventListener("load", handleLoad);
+    let optionsDIV;
+    let form;
+    let startButton;
     let codePlayer = "";
     let codeArray = [];
     let index = 0;
     let dupes = false;
     let div;
-    async function handleLoad() {
+    function handleLoad() {
+        optionsDIV = document.querySelector(".options");
+        form = document.querySelector("form");
+        optionsDIV.addEventListener("change", displayOptions);
+        optionsDIV.addEventListener("input", displayOptions);
+        startButton = document.getElementById("startbtn");
+        startButton.addEventListener("click", newFunction);
+        getPlayerDIVs();
+    }
+    function newFunction() {
+        let formData = new FormData(form);
+        for (let entry of formData) {
+            let selector = "[name='" + entry[0] + "']";
+            let item = document.querySelector(selector);
+            if (item != null) {
+                switch (entry[0]) {
+                    case "quantity":
+                        //console.log(item.value);
+                        break;
+                    case "mode":
+                        //console.log(item.value);
+                        switch (item.value) {
+                            case "opt1":
+                                console.log(item.value);
+                                break;
+                            case "opt2":
+                                console.log(item.value);
+                                break;
+                            case "opt3":
+                                console.log(item.value);
+                                break;
+                            default:
+                                break;
+                        }
+                        break;
+                    default:
+                }
+            }
+        }
+    }
+    function displayOptions(_event) {
+        console.log(_event);
+        let target = _event.target;
+        let quantitySetting = document.getElementById("quantitySetting");
+        if (target.name == "quantity") {
+            console.log(target.value);
+            quantitySetting.innerText = target.value;
+        }
+        else if (target.name == "mode") {
+            switch (target.value) {
+                case "einfach":
+                    console.log(target.value);
+                    break;
+                case "mittel":
+                    console.log(target.value);
+                    break;
+                case "schwer":
+                    console.log(target.value);
+                    break;
+                default:
+                    break;
+            }
+        }
+    }
+    async function getPlayerDIVs() {
         let codeDIVs = document.getElementsByClassName("code");
         for (div of codeDIVs) {
             //console.log(div);

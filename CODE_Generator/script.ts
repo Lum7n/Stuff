@@ -2,6 +2,10 @@ namespace CodeGenerator {
 
     window.addEventListener("load", handleLoad);
 
+    let optionsDIV: HTMLDivElement;
+    let form: HTMLFormElement;
+    let startButton: HTMLButtonElement;
+
     let codePlayer: string = "";
     let codeArray: string[] = [];
     let index: number = 0;
@@ -10,8 +14,90 @@ namespace CodeGenerator {
 
     let div: HTMLDivElement;
 
-    async function handleLoad(): Promise<void> {
+    function handleLoad() {
 
+        optionsDIV = <HTMLDivElement>document.querySelector(".options");
+
+        form = <HTMLFormElement>document.querySelector("form");
+
+        optionsDIV.addEventListener("change", displayOptions);
+        optionsDIV.addEventListener("input", displayOptions);
+
+        startButton = <HTMLButtonElement>document.getElementById("startbtn");
+        startButton.addEventListener("click", newFunction);
+
+        getPlayerDIVs();
+
+    }
+
+    function newFunction(): void {
+
+        let formData = new FormData(form);
+
+        for (let entry of formData) {
+            let selector = "[name='" + entry[0] + "']";
+            let item: HTMLInputElement = <HTMLInputElement>document.querySelector(selector);
+            if (item != null) {
+                switch (entry[0]) {
+                    case "quantity":
+                        //console.log(item.value);
+                        break;
+                    case "mode":
+                        //console.log(item.value);
+                        switch (item.value) {
+                            case "opt1":
+                                console.log(item.value);
+                                break;
+                            case "opt2":
+                                console.log(item.value);
+                                break;
+                            case "opt3":
+                                console.log(item.value);
+                                break;
+                            default:
+                                break;
+                        }
+                        break;
+                    default:
+                }
+            }
+        }
+    }
+
+    function displayOptions(_event: Event): void {
+        console.log(_event);
+ 
+        let target: HTMLInputElement = <HTMLInputElement>_event.target;
+
+        let quantitySetting: HTMLSpanElement = <HTMLSpanElement>document.getElementById("quantitySetting");
+
+        if (target.name == "quantity") {
+
+            console.log(target.value);
+            quantitySetting.innerText = target.value;
+
+        } else if (target.name == "mode") {
+
+            switch (target.value) {
+                case "einfach":
+                    console.log(target.value);
+                    break;
+
+                case "mittel":
+                    console.log(target.value);
+                    break;
+
+                case "schwer":
+                    console.log(target.value);
+                    break;
+
+                default:
+                    break;
+            }
+        }
+    }
+
+    async function getPlayerDIVs(): Promise<void> {
         let codeDIVs: HTMLCollectionOf<HTMLDivElement> = <HTMLCollectionOf<HTMLDivElement>>document.getElementsByClassName("code");
 
         for (div of codeDIVs) {

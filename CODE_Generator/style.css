@@ -1,0 +1,20 @@
+body {
+    margin: auto;
+    text-align: center;
+}
+
+.options {
+    margin: auto;
+    margin-bottom: 5px;
+    padding: 2rem;
+    width: 40%;
+    border: 1px solid green;
+}
+
+.code {
+    margin: auto;
+    margin-bottom: 5px;
+    padding: 2rem;
+    width: 40%;
+    border: 1px solid green;
+}
