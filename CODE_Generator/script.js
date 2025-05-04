@@ -75,12 +75,16 @@ var CodeGenerator;
         }
     }
     async function getPlayerDIVs() {
+        // rename to createPlayerDIVs oder extra funktion eins früher
+        // create Funktion mit der im range Input eingegebenen Zahl erstellen
         let codeDIVs = document.getElementsByClassName("code");
         for (div of codeDIVs) {
             //console.log(div);
             codePlayer = createUniqueCodes();
             div.innerHTML += codePlayer;
             await new Promise(resolve => setTimeout(resolve, 2000));
+            // das timeout durch einen button für den nächsten Spieler ersetzen, beim letzten Button um codes anzuzeigen für Endkontrolle
+            // außerdem bei jedem Spieler einen "re-roll" Button hinzufügen, falls er den Restart gelegt bekommen hat
             hideCode(div);
         }
     }
