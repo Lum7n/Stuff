@@ -1,6 +1,7 @@
 body {
     margin: auto;
     text-align: center;
+    font-family: 'Courier New', Courier, monospace;
 }
 
 .options {
@@ -11,10 +12,19 @@ body {
     border: 1px solid green;
 }
 
+button {
+    margin-bottom: 5px;
+    font-family: 'Courier New', Courier, monospace;
+}
+
 .code {
     margin: auto;
     margin-bottom: 5px;
     padding: 2rem;
     width: 40%;
     border: 1px solid green;
+}
+
+select {
+    font-family: 'Courier New', Courier, monospace;
 }

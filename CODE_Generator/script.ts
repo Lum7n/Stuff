@@ -23,7 +23,7 @@ namespace CodeGenerator {
         optionsDIV.addEventListener("change", displayOptions);
         optionsDIV.addEventListener("input", displayOptions);
 
-        startButton = <HTMLButtonElement>document.getElementById("startbtn");
+        startButton = <HTMLButtonElement>document.getElementById("startButton");
         startButton.addEventListener("click", newFunction);
 
         getPlayerDIVs();

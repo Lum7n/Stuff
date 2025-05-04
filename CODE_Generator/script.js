@@ -15,7 +15,7 @@ var CodeGenerator;
         form = document.querySelector("form");
         optionsDIV.addEventListener("change", displayOptions);
         optionsDIV.addEventListener("input", displayOptions);
-        startButton = document.getElementById("startbtn");
+        startButton = document.getElementById("startButton");
         startButton.addEventListener("click", newFunction);
         getPlayerDIVs();
     }
