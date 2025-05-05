@@ -10,8 +10,7 @@ namespace CodeGenerator {
 
     let codePlayer: string = "";
     let codeArray: string[] = [];
-
-    let div: HTMLDivElement;
+    let usedCcodesArray: string[] = [];
 
     function handleLoad() {
 
@@ -92,66 +91,80 @@ namespace CodeGenerator {
         startButton.style.display = "none";
     }
 
-    async function generatePlayerDIVs(playerAmount: number): Promise<void> {
+    function generatePlayerDIVs(_playerAmount: number): void {
 
         let mainDIV: HTMLDivElement = <HTMLDivElement>document.querySelector(".mainDIV");
         console.log(mainDIV);
+        let index: number = 1;
 
         codeArray = generateCodeArray();
         console.log(codeArray);
         shuffleArray(codeArray);
 
-        for (let index = 1; index <= playerAmount; index++) {
-            
+        function createNextDiv(_event: Event): void {
+
+            if (index > _playerAmount || !mainDIV) {
+                let lastButton = document.createElement("Button");
+                lastButton.classList.add("open");
+                lastButton.innerText = "Codes aufdecken";
+                lastButton.addEventListener("click", openCodes);
+                mainDIV.appendChild(lastButton);
+            }
+
+            const target = _event.target;
+            if (target instanceof HTMLElement) {
+                target.style.display = "none";
+            }
+
+            if (index > _playerAmount || !mainDIV) return;
+
+
             let newDIV = document.createElement("Div");
             newDIV.classList.add("code");
             codePlayer = codeArray.splice(0, 1).toString();
+            usedCcodesArray.push(codePlayer);
             newDIV.innerText = "Player " + index + ": " + codePlayer;
             mainDIV.appendChild(newDIV);
 
             let newbutton = document.createElement("Button");
-            newbutton.classList.add("next");
-            newbutton.innerText = "next Player";
+            newbutton.classList.add("hide");
+            newbutton.innerText = "Code verstecken"
+            newbutton.addEventListener("click", nextPlayer);
             mainDIV.appendChild(newbutton);
-            newbutton.addEventListener("click", next);
 
-            await new Promise(resolve => setTimeout(resolve, 2000));
+            index++;
+        }
+        let event: Event = new Event("test");
+        createNextDiv(event);
+
+        function nextPlayer(_event: Event): void {
+            let target = _event.target;
+            if (target instanceof HTMLElement) {
+                target.classList.remove("hide");
+                target.classList.add("next");
+                target.innerText = "nächster Spieler"
+                target.addEventListener("click", createNextDiv);
+
+                const previous = target.previousElementSibling;
+                if (previous instanceof HTMLElement) {
+                    previous.style.backgroundColor = "yellow"; // Beispielaktion
+                    previous.innerText = "Player " + (index-1);
+                }
+            }
         }
     }
 
-    // das timeout durch einen button für den nächsten Spieler ersetzen, beim letzten Button um codes anzuzeigen für Endkontrolle
-    // function hier mit den funktionalitäten der funktion von ChatGPT vervollständigen
     // außerdem bei jedem Spieler einen "re-roll" Button hinzufügen, falls er den Restart gelegt bekommen hat
 
-    function next(): void {
-
-    }
-
-    function generateDivsStepByStep(): void {
-        const container = document.getElementById("container");
-        const totalDivs = 5;
-        let currentIndex = 0;
-      
-        function createNextDiv() {
-          if (currentIndex >= totalDivs || !container) return;
-      
-          const div = document.createElement("div");
-          div.textContent = `Div Nummer ${currentIndex + 1}`;
-      
-          const button = document.createElement("button");
-          button.textContent = "Weiter";
-          button.addEventListener("click", () => {
-            createNextDiv(); // Erstelle das nächste Div
-          });
-      
-          div.appendChild(button);
-          container.appendChild(div);
-      
-          currentIndex++;
+    function openCodes(): void {
+        console.log(usedCcodesArray);
+        let index = 0;
+        let playerDivs: HTMLCollectionOf<Element> = document.getElementsByClassName("code");
+        for (let div of playerDivs) {
+            div.innerHTML += ": " + usedCcodesArray[index];
+            index++;
         }
-      
-        // Starte mit dem ersten Div
-        createNextDiv();
+
     }
 
     function generateCodeArray(): string[] {
@@ -175,10 +188,10 @@ namespace CodeGenerator {
         return result;
     }
 
-    function shuffleArray(array: string[]) {
-        for (let i = array.length - 1; i >= 1; i--) {
+    function shuffleArray(_array: string[]) {
+        for (let i = _array.length - 1; i >= 1; i--) {
             const j = Math.floor(Math.random() * (i + 1));
-            [array[i], array[j]] = [array[j], array[i]];
+            [_array[i], _array[j]] = [_array[j], _array[i]];
         }
     }
 }
